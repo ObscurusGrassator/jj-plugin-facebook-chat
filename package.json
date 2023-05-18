@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "ceateBabelConfig": "echo \"module.exports = { presets: ['module:metro-react-native-babel-preset'] };\" > ./babel.config.js",
+    "cleanFolders": "rm -rdf ./buildReactNative; mkdir ./buildReactNative; rm -rdf ./prebuildReactNative; cp -r ./src ./prebuildReactNative",
+    "browserScriptCommentary": "node -e '  require(\"replace-in-file\")({  files: \"./prebuildReactNative/**/*.js\", processor: input => input.replace(/(sendRequest\\()(.*?\\})\\/\\*\\$\\*\\//gs, (all, a, b) => a + \"`\" + encodeURIComponent(b) + \"`\")  })  '",
+    "browserScriptUncommentary": "node -e '  require(\"replace-in-file\")({  files: \"./buildReactNative/**/*.js\", processor: input => input.replace(/(sendRequest\\(`)([^`]*)`/g, (all, a, b) => a + decodeURIComponent(b) + \"`\")  })  '",
+    "prebuild": "[ ! -d \"./node_modules\" ] && npm i ; npm run ceateBabelConfig ; npm run cleanFolders ; npm run browserScriptCommentary",
+    "build": "npx babel prebuildReactNative --out-dir buildReactNative",
+    "postbuild": "npm run browserScriptUncommentary"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "metro-react-native-babel-preset": "^0.76.3",
+    "replace-in-file": "^6.3.5"
+  }
+}
