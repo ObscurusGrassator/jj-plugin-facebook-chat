@@ -1,6 +1,6 @@
 const FacebookApi = require('./facebook.api');
 
-/** @type {{ tab: import('server/types/processComunication').BrowserPuppeteer }} */
+/** @type {{ tab: import('jjplugin').BrowserPuppeteer }} */
 // @ts-ignore
 const options = {};
 const api = new FacebookApi(options);
@@ -39,23 +39,26 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         "scriptPerInterval": async ctx => {
             if (!ctx.config.facebook.automatic.checkNewMessage.value) return;
     
-            await options.tab.pause.start();
+            let result = '';
+    
             try {
+                await options.tab.pause.start();
                 await api.login(ctx.config);
-        
+    
                 const newMessages = await api.getMessages(false, true);
                 const friends = Object.keys(newMessages);
                 const newMessagesString = JSON.stringify(newMessages);
-        
+    
                 if (lastMessages !== newMessagesString) {
                     lastMessages = newMessagesString;
-        
-                    if (friends.length  >  1) await ctx.speech('Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1'));
-                    if (friends.length === 1) await ctx.speech('Máš novú správu od priateľa ' + friends[0]);
+    
+                    if (friends.length  >  1) result = 'Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
+                    if (friends.length === 1) result = 'Máš novú správu od priateľa ' + friends[0];
                 }
             }
             catch (err) { throw err; }
             finally { options.tab.pause.stop(); }
+            return result;
         }
     }, {
         "sentenceMemberRequirements": {
@@ -103,19 +106,22 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         }
     },
     async ctx => {
-        await options.tab.pause.start();
+        let result = '';
+        
         try {
             await ctx.speech('Pozriem Facebook...');
+            await options.tab.pause.start();
             await options.tab.viewTab();
             await api.login(ctx.config);
     
             const friends = Object.keys(await api.getMessages(false));
-            if (friends.length  >  1) await ctx.speech('Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1'));
-            if (friends.length === 1) await ctx.speech('Máš novú správu od priateľa ' + friends[0]);
-            if (friends.length === 0) await ctx.speech('Nemáš žiadne nové správy');
+            if (friends.length  >  1) result = 'Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
+            if (friends.length === 1) result = 'Máš novú správu od priateľa ' + friends[0];
+            if (friends.length === 0) result = 'Nemáš žiadne nové správy';
         }
         catch (err) { throw err; }
         finally { options.tab.pause.stop(); }
+        return result;
     }, {
         "sentenceMemberRequirements": {
             "_or": [
@@ -143,18 +149,21 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         }
     },
     async ctx => {
-        await options.tab.pause.start();
+        let result = '';
+    
         try {
             await ctx.speech('Pozriem Facebook...');
+            await options.tab.pause.start();
             await options.tab.viewTab();
             await api.login(ctx.config);
     
             let messages = await api.getMessages(true);
-            await ctx.speech(Object.keys(messages).map(name => `${name} píše, ${messages[name].join(', ')},`).join(', '));
-            if (Object.keys(messages).length === 0) await ctx.speech('Nemáš žiadne nové správy');
+            if (Object.keys(messages).length === 0) result = 'Nemáš žiadne nové správy';
+            else result = Object.keys(messages).map(name => `${name} píše, ${messages[name].join(', ')},`).join(', ');
         }
         catch (err) { throw err; }
         finally { options.tab.pause.stop(); }
+        return result;
     }, {
         "sentenceMemberRequirements": {
             "example": "Čo mi píše <subject>?",
@@ -187,19 +196,22 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         }
     },
     async ctx => {
-        await options.tab.pause.start();
+        let result = '';
+    
         try {
             await ctx.speech('Pozriem Facebook...');
+            await options.tab.pause.start();
             await options.tab.viewTab();
             await api.login(ctx.config);
     
             let name = ctx.propName.friend.baseWord;
             let messages = await api.getMessages(name);
-            if (!Object.keys(messages).length) await ctx.speech(`${name} ti nenapísal žiadnu novú správu.`);
-            else await ctx.speech(Object.keys(messages).map(name => `${name} píše, ${messages[name].join(', ')},`).join(', '));
+            if (!Object.keys(messages).length) result = `${name} ti nenapísal žiadnu novú správu.`;
+            else result = Object.keys(messages).map(name => `${name} píše, ${messages[name].join(', ')},`).join(', ');
         }
         catch (err) { throw err; }
         finally { options.tab.pause.stop(); }
+        return result;
     }, {
         "sentenceMemberRequirements": {
             "example": "Napíš správu pre <object> citujem ... koniec citácie!",
@@ -241,37 +253,39 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         }
     },
     async ctx => {
-        await options.tab.pause.start();
+        let result = '';
+    
         try {
+            await options.tab.pause.start();
+            await ctx.speech('Pripravujem Facebook správu ...');
             await options.tab.viewTab();
             await api.login(ctx.config);
-    
+            
             let friends = ctx.propName.friend.multiple.map(f => f.baseWord);
             let realNames = await api.sendMessage(friends, '');
     
             let unfindedNames = friends.filter(n => !realNames[n]);
             if (unfindedNames.length) {
-                await ctx.speech( (unfindedNames.length > 1 ? 'Mená' : 'Meno')
-                    + unfindedNames.join(' a ') + ' som v blízkych kontaktoch nenašiel.'
-                );
-            }
-            else {
+                return (unfindedNames.length > 1 ? 'Mená' : 'Meno') + unfindedNames.join(' a ') + ' som v blízkych kontaktoch nenašiel.';
+            } else {
                 if (!ctx.propName.citation) {
                     let { text } = await ctx.speech('Môžeš diktovať Facebook správu', true);
                     ctx.propName.citation = text;
                 }
-                else await ctx.speech('Posielam Facebook správu ...');
+    
+                let citation = ctx.propName.citation.replace(/ __? /g, ' ');
     
                 if (await ctx.getSummaryAccept('FacebookChat plugin: Poslať správu '
                     + (Object.values(realNames).length === 1 ? 'priateľovi: ' : 'priateľom: ')
-                    + Object.values(realNames).join(', ') + ' s textom: ' + ctx.propName.citation)
+                    + Object.values(realNames).join(', ') + ' s textom: ' + citation)
                 ) {
-                    await api.sendMessage(friends, ctx.propName.citation);
-                    await ctx.speech('Odoslané...');
+                    await api.sendMessage(friends, citation);
+                    result = 'Odoslané...';
                 }
             }
         }
         catch (err) { throw err; }
         finally { options.tab.pause.stop(); }
+        return result;
     }
 );

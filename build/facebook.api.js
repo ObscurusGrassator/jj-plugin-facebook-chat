@@ -3,7 +3,7 @@ const pluginStorage = {users: {}};
 
 module.exports = class FacebookApi {
 
-    /** @param {{ tab: import('server/types/processComunication').BrowserPuppeteer }} options */
+    /** @param {{ tab: import('jjplugin').BrowserPuppeteer }} options */
     constructor(options) { this.options = options; }
 
     /** @param { typeof import('./index')['config'] } config */
@@ -55,6 +55,8 @@ module.exports = class FacebookApi {
 
                 // searching in last writing firends
                 for (let f of friendTabs) {
+                    if (f.querySelectorAll('div[role="img"] > div').length > 1) continue; // group - not one person
+
                     /** @type { HTMLDivElement } */
                     let friendTab = f.querySelector('[dir="auto"]');
                     if (friendTab && new RegExp(name, 'i').test(friendTab.innerText)) {
@@ -119,13 +121,13 @@ module.exports = class FacebookApi {
             let friendTabs = await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="button"] > [data-visualcompletion="ignore"]');
 
             for (let e of friendTabs) {
-                if (window.getComputedStyle(e).backgroundColor.substring(0, 4) == 'rgb(') {
+                let link = e.closest('[role="gridcell"]').parentElement.querySelector('div:first-child > div > a');
+                if (window.getComputedStyle(e).backgroundColor.substring(0, 4) == 'rgb(' // only new messages
+                        && link.querySelectorAll('div[role="img"] > div').length === 1) { // without groups
                     // @ts-ignore
                     let name = e.closest('[role="row"]').querySelector('[dir="auto"]').innerText.replace(/\\n/, '');
                     messages[name] = [];
-                    let code = e.closest('[role="gridcell"]').parentElement.querySelector('div:first-child > div > a')
-                        .getAttribute('href').match(/\/[0-9]+\//)[0];
-                    codeByName[name] = code;
+                    codeByName[name] = link.getAttribute('href').match(/\/[0-9]+\//)[0];
                 }
             }
             for (let name in messages) {
@@ -140,7 +142,7 @@ module.exports = class FacebookApi {
                 let lastColor;
                 // all last messages
                 for (let i = elems.length - 1, run = -2; i >= 0 && run; i--) {
-                    let e = elems[i].querySelector('[dir="auto"][role="none"]');
+                    let e = elems[i].querySelector('[style^=background-color]');
                     if (e && !lastColor) lastColor = window.getComputedStyle(e).color;
                     if (e && lastColor == window.getComputedStyle(e).color) {
                         // @ts-ignore
@@ -192,7 +194,7 @@ module.exports = class FacebookApi {
     async setDefaultScreen(closeBrowserTab = false) {
         await this.options.tab.sendRequest(async utils => {
             (/** @type { HTMLDivElement } */(
-                await utils.waitForElement('a[role="link"] > i[data-visualcompletion="css-img"]')
+                await utils.waitForElement('a[href="/messages/new/"]')
             )).click();
         }, '$*');
         closeBrowserTab && await this.options.tab.destructor();
