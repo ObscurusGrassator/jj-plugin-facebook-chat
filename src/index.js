@@ -62,7 +62,7 @@ module.exports = addPlugin({
             example: 'Písal mi niekto?',
             type: 'question',
             predicates: {multiple: [{verbs: [{baseWord: /(na|od)písať/}]}]},
-            objects: [{multiple: [{origWord: /niekto/}]}],
+            subjects: {multiple: [{origWord: /niekto/}]},
         }, {
             example: 'Mám nejaké nové správy?',
             type: 'question',

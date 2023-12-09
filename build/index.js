@@ -75,13 +75,11 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                             }
                         ]
                     },
-                    "objects": [
-                        {
-                            "multiple": [
-                                { "origWord": /niekto/ }
-                            ]
-                        }
-                    ]
+                    "subjects": {
+                        "multiple": [
+                            { "origWord": /niekto/ }
+                        ]
+                    }
                 }, {
                     "example": "Mám nejaké nové správy?",
                     "type": "question",
