@@ -39,7 +39,7 @@ module.exports = addPlugin({
             const friends = Object.keys(newMessages);
             const newMessagesString = JSON.stringify(newMessages);
 
-            if (lastMessages !== newMessagesString) {
+            if (friends && friends.length && lastMessages !== newMessagesString) {
                 lastMessages = newMessagesString;
 
                 if (friends.length  >  1) result = 'Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
@@ -54,22 +54,10 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Písal<(na|od)?písať> mi niekto ?',
-        'Mám<prísť> správu ?',
+        'Písal<(na|od)?písať> mi ?niekto na<vo> ?Facebooku na<v> ?Messengeri na ?Messenger do ?Messengera ?novú ?správu ?',
+        'Mám ?novú správu na<vo> ?Facebooku na<v> ?Messengeri ?',
+        'Prišla ?mi ?nejaká<dajaký> ?nová správa na ?Facebook do ?Facebooku na ?Messenger do ?Messengera ?',
     ],
-    sentenceMemberRequirements: {
-        _or: [{
-            example: 'Písal mi niekto?',
-            type: 'question',
-            predicates: {multiple: [{verbs: [{baseWord: /(na|od)písať/}]}]},
-            subjects: {multiple: [{origWord: /niekto/}]},
-        }, {
-            example: 'Mám nejaké nové správy?',
-            type: 'question',
-            predicates: {multiple: [{verbs: [{baseWord: /mať|prísť/}]}]},
-            objects: [{multiple: [{baseWord: /správa/}]}],
-        }]
-    },
 }, async ctx => {
     let result = '';
     
@@ -87,15 +75,12 @@ module.exports = addPlugin({
     catch (err) { throw err; }
     finally { options.tab.pause.stop(); }
     return result;
-}, {
-    sentenceMemberRequirements: {
-        _or: [{
-            example: 'Prečítaj mi nové správy!',
-            type: 'command',
-            predicates: {multiple: [{verbs: [{baseWord: /prečítať/}]}]},
-            objects: [{multiple: [{origWord: /správy|ich/}]}],
-        }]
-    },
+},
+
+{
+    sentenceMemberRequirementStrings: [
+        'Prečítaj mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
+    ],
 }, async ctx => {
     let result = '';
 
@@ -115,13 +100,9 @@ module.exports = addPlugin({
 },
 
 {
-    sentenceMemberRequirements: {
-        example: 'Čo mi píše <subject>?',
-        type: 'question',
-        predicates: {multiple: [{verbs: [{baseWord: [/(na|od)písať/]}]}]},
-        subjects: {multiple: [{propName: {friend: 'required'}}]},
-        objects: [{multiple: [{origWord: /čo/}]}],
-    },
+    sentenceMemberRequirementStrings: [
+        'Čo mi píše Adam<.+> na<vo> ?Facebooku na<v> ?Messengeri ?',
+    ],
 }, async ctx => {
     let result = '';
 
@@ -131,7 +112,7 @@ module.exports = addPlugin({
         await options.tab.viewTab();
         await api.login(ctx.config);
 
-        let name = ctx.propName.friend.baseWord;
+        let name = ctx.propName['adam'].multiple[0].baseWord;
         let messages = await api.getMessages(name);
         if (!Object.keys(messages).length) result = `${name} ti nenapísal žiadnu novú správu.`;
         else result = Object.keys(messages).map(name => `${name} píše, ${messages[name].join(', ')},`).join(', ');
@@ -143,8 +124,8 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Napíš<odpísať|(od|p)oslať> správu Adamovi<.+> !',
-        'Napíš<odpísať|(od|p)oslať> správu pre Adama<.+> !'
+        'Napíš<odpísať|(od|p)oslať> ?novú ?správu Adamovi<.+> na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !',
+        'Napíš<odpísať|(od|p)oslať> ?novú správu pre Adama<.+> na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
     ],
     sentenceMemberRequirements: {
         example: 'Napíš správu pre <object> citujem ... koniec citácie!',
@@ -167,7 +148,7 @@ module.exports = addPlugin({
         await options.tab.viewTab();
         await api.login(ctx.config);
         
-        let friends = ctx.propName.friend.multiple.map(f => f.baseWord);
+        let friends = ctx.propName['adamovi'].multiple.map(f => f.baseWord);
         let realNames = await api.sendMessage(friends, '');
 
         let unfindedNames = friends.filter(n => !realNames[n]);

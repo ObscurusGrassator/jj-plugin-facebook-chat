@@ -49,7 +49,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                 const friends = Object.keys(newMessages);
                 const newMessagesString = JSON.stringify(newMessages);
     
-                if (lastMessages !== newMessagesString) {
+                if (friends && friends.length && lastMessages !== newMessagesString) {
                     lastMessages = newMessagesString;
     
                     if (friends.length  >  1) result = 'Máš nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
