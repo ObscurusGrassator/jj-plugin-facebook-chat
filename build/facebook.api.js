@@ -9,10 +9,16 @@ module.exports = class FacebookApi {
     /** @param { typeof import('./index')['config'] } config */
     async login(config) {
         await this.options.tab.sendRequest(async (utils, login, pass) => {
-            /** @type { HTMLButtonElement } */ 
-            let cookiebanner = document.querySelector('[data-cookiebanner="accept_only_essential_button"]')
+            /** @type { HTMLButtonElement } */
+            let cookiebanner = document.querySelector('[data-cookiebanner="accept_only_essential_button"]');
             if (cookiebanner !== null) cookiebanner.click();
 
+            /** @type { HTMLButtonElement } */
+            let not_me_link = document.querySelector('[ID=not_me_link]');
+            if (not_me_link !== null) not_me_link.click();
+        }, '$*');
+
+        await this.options.tab.sendRequest(async (utils, login, pass) => {
             /** @type { HTMLInputElement } */ let loginEl = document.querySelector('#email');
             /** @type { HTMLInputElement } */ let passEl = document.querySelector('#pass');
             if (loginEl !== null) {

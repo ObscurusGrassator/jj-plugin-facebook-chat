@@ -167,7 +167,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "Písal": "required" }
+                                "propName": { "písal": "required" }
                             }
                         ]
                     },
@@ -517,7 +517,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Facebooku": "optional" }
+                            "propName": { "facebooku": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -712,7 +712,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengeri": "optional" }
+                            "propName": { "messengeri": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -907,7 +907,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messenger": "optional" }
+                            "propName": { "messenger": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -1102,7 +1102,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengera": "optional" }
+                            "propName": { "messengera": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -1403,7 +1403,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                     "adverbs": [  ],
                     "dateTimes": [  ],
                     "cronString": [  ],
-                    "example": "Písal<(na|od)?písať> mi ?niekto na<vo> ?Facebooku na<v> ?Messengeri na ?Messenger do ?Messengera ?novú ?správu ?"
+                    "example": "Písal mi niekto na Facebooku na Messengeri na Messenger do Messengera novú správu ?"
                 }, {
                     "type": "question",
                     "predicates": {
@@ -1510,7 +1510,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "Mám": "required" }
+                                "propName": { "mám": "required" }
                             }
                         ]
                     },
@@ -1595,8 +1595,84 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     "_or": [
                                         {
                                             "baseWord": /.+/i,
+                                            "origWord": "nejakú",
+                                            "origIndex": 1,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 47326,
+                                            "pos": {
+                                                "key": "P",
+                                                "name": "Slovní druh",
+                                                "value": "zámeno",
+                                                "subpos": {
+                                                    "key": "Z",
+                                                    "value": "neurčité",
+                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /nejaký|dajaký/i,
+                                            "origIndex": 1,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 47326,
+                                            "pos": {
+                                                "key": "P",
+                                                "name": "Slovní druh",
+                                                "value": "zámeno",
+                                                "subpos": {
+                                                    "key": "Z",
+                                                    "value": "neurčité",
+                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ]
+                                        }
+                                    ]
+                                }, {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
                                             "origWord": "správu",
-                                            "origIndex": 2,
+                                            "origIndex": 3,
                                             "unknownWord": false,
                                             "wordUsingFrequency": 67277,
                                             "explanation": "spravovanie;_inštitúcia",
@@ -1639,8 +1715,82 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     "_or": [
                                                         {
                                                             "baseWord": /.+/i,
-                                                            "origWord": "novú",
+                                                            "origWord": "nejakú",
                                                             "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 47326,
+                                                            "pos": {
+                                                                "key": "P",
+                                                                "name": "Slovní druh",
+                                                                "value": "zámeno",
+                                                                "subpos": {
+                                                                    "key": "Z",
+                                                                    "value": "neurčité",
+                                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "propName": { "nejakú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nejaký|dajaký/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 47326,
+                                                            "pos": {
+                                                                "key": "P",
+                                                                "name": "Slovní druh",
+                                                                "value": "zámeno",
+                                                                "subpos": {
+                                                                    "key": "Z",
+                                                                    "value": "neurčité",
+                                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "propName": { "nejakú": "optional" }
+                                                        }
+                                                    ]
+                                                }, {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 2,
                                                             "unknownWord": false,
                                                             "wordUsingFrequency": 261966,
                                                             "pos": {
@@ -1687,7 +1837,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
-                                                            "origIndex": 1,
+                                                            "origIndex": 2,
                                                             "unknownWord": false,
                                                             "wordUsingFrequency": 261966,
                                                             "pos": {
@@ -1739,7 +1889,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         }, {
                                             "origWord": /.+/i,
                                             "baseWord": /správa/i,
-                                            "origIndex": 2,
+                                            "origIndex": 3,
                                             "unknownWord": false,
                                             "wordUsingFrequency": 67277,
                                             "explanation": "spravovanie;_inštitúcia",
@@ -1782,8 +1932,82 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     "_or": [
                                                         {
                                                             "baseWord": /.+/i,
-                                                            "origWord": "novú",
+                                                            "origWord": "nejakú",
                                                             "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 47326,
+                                                            "pos": {
+                                                                "key": "P",
+                                                                "name": "Slovní druh",
+                                                                "value": "zámeno",
+                                                                "subpos": {
+                                                                    "key": "Z",
+                                                                    "value": "neurčité",
+                                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "propName": { "nejakú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nejaký|dajaký/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 47326,
+                                                            "pos": {
+                                                                "key": "P",
+                                                                "name": "Slovní druh",
+                                                                "value": "zámeno",
+                                                                "subpos": {
+                                                                    "key": "Z",
+                                                                    "value": "neurčité",
+                                                                    "example": "(Z) neurčité --> example: nějaký, číkoli, cosi"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "propName": { "nejakú": "optional" }
+                                                        }
+                                                    ]
+                                                }, {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 2,
                                                             "unknownWord": false,
                                                             "wordUsingFrequency": 261966,
                                                             "pos": {
@@ -1830,7 +2054,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
-                                                            "origIndex": 1,
+                                                            "origIndex": 2,
                                                             "unknownWord": false,
                                                             "wordUsingFrequency": 261966,
                                                             "pos": {
@@ -1883,7 +2107,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "správu": "required" }
+                            "propName": { "nejakú": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -1891,7 +2115,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         {
                                             "baseWord": /.+/i,
                                             "origWord": "Facebooku",
-                                            "origIndex": 4,
+                                            "origIndex": 5,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 5319,
                                             "pos": {
@@ -1935,7 +2159,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     {
                                                         "baseWord": /.+/i,
                                                         "origWord": "na",
-                                                        "origIndex": 3,
+                                                        "origIndex": 4,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -1958,7 +2182,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     }, {
                                                         "origWord": /.+/i,
                                                         "baseWord": /na|vo/i,
-                                                        "origIndex": 3,
+                                                        "origIndex": 4,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -1984,7 +2208,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         }, {
                                             "origWord": /.+/i,
                                             "baseWord": /Facebook/i,
-                                            "origIndex": 4,
+                                            "origIndex": 5,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 5319,
                                             "pos": {
@@ -2028,7 +2252,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     {
                                                         "baseWord": /.+/i,
                                                         "origWord": "na",
-                                                        "origIndex": 3,
+                                                        "origIndex": 4,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2051,7 +2275,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     }, {
                                                         "origWord": /.+/i,
                                                         "baseWord": /na|vo/i,
-                                                        "origIndex": 3,
+                                                        "origIndex": 4,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2078,7 +2302,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Facebooku": "optional" }
+                            "propName": { "facebooku": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -2086,7 +2310,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         {
                                             "baseWord": /.+/i,
                                             "origWord": "Messengeri",
-                                            "origIndex": 6,
+                                            "origIndex": 7,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 258,
                                             "pos": {
@@ -2130,7 +2354,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     {
                                                         "baseWord": /.+/i,
                                                         "origWord": "na",
-                                                        "origIndex": 5,
+                                                        "origIndex": 6,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2153,7 +2377,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     }, {
                                                         "origWord": /.+/i,
                                                         "baseWord": /na|v/i,
-                                                        "origIndex": 5,
+                                                        "origIndex": 6,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2179,7 +2403,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         }, {
                                             "origWord": /.+/i,
                                             "baseWord": /Messenger/i,
-                                            "origIndex": 6,
+                                            "origIndex": 7,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 258,
                                             "pos": {
@@ -2223,7 +2447,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     {
                                                         "baseWord": /.+/i,
                                                         "origWord": "na",
-                                                        "origIndex": 5,
+                                                        "origIndex": 6,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2246,7 +2470,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                     }, {
                                                         "origWord": /.+/i,
                                                         "baseWord": /na|v/i,
-                                                        "origIndex": 5,
+                                                        "origIndex": 6,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
                                                         "pos": {
@@ -2273,13 +2497,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengeri": "optional" }
+                            "propName": { "messengeri": "optional" }
                         }
                     ],
                     "adverbs": [  ],
                     "dateTimes": [  ],
                     "cronString": [  ],
-                    "example": "Mám ?novú správu na<vo> ?Facebooku na<v> ?Messengeri ?"
+                    "example": "Mám nejakú novú správu na Facebooku na Messengeri ?"
                 }, {
                     "type": "question",
                     "predicates": {
@@ -2384,7 +2608,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "Prišla": "required" }
+                                "propName": { "prišla": "required" }
                             }
                         ]
                     },
@@ -2582,7 +2806,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                 ]
                             }
                         ],
-                        "propName": { "Facebooku": "optional" }
+                        "propName": { "facebooku": "optional" }
                     },
                     "objects": [
                         {
@@ -2860,7 +3084,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Facebook": "optional" }
+                            "propName": { "facebook": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -3136,7 +3360,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messenger": "optional" }
+                            "propName": { "messenger": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -3331,13 +3555,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengera": "optional" }
+                            "propName": { "messengera": "optional" }
                         }
                     ],
                     "adverbs": [  ],
                     "dateTimes": [  ],
                     "cronString": [  ],
-                    "example": "Prišla ?mi ?nejaká<dajaký> ?nová správa na ?Facebook do ?Facebooku na ?Messenger do ?Messengera ?"
+                    "example": "Prišla mi nejaká nová správa na Facebook do Facebooku na Messenger do Messengera ?"
                 }
             ]
         }
@@ -3442,7 +3666,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "Prečítaj": "required" }
+                                "propName": { "prečítaj": "required" }
                             }
                         ]
                     },
@@ -4315,7 +4539,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Facebooku": "optional" }
+                            "propName": { "facebooku": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4510,7 +4734,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengeri": "optional" }
+                            "propName": { "messengeri": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4783,13 +5007,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Messengera": "optional" }
+                            "propName": { "messengera": "optional" }
                         }
                     ],
                     "adverbs": [  ],
                     "dateTimes": [  ],
                     "cronString": [  ],
-                    "example": "Prečítaj mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !"
+                    "example": "Prečítaj mi všetky nové správy na Facebooku na Messengeri z Messengera !"
                 }
             ]
         }
@@ -5115,7 +5339,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                 ]
                             }
                         ],
-                        "propName": { "Messengeri": "optional" }
+                        "propName": { "messengeri": "optional" }
                     },
                     "objects": [
                         {
@@ -5255,7 +5479,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Čo": "required" }
+                            "propName": { "čo": "required" }
                         }, {
                             "multiple": [
                                 {
@@ -5348,7 +5572,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Adam": "required" }
+                            "propName": { "adam": "required" }
                         }, {
                             "multiple": [
                                 {
@@ -5543,13 +5767,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "Facebooku": "optional" }
+                            "propName": { "facebooku": "optional" }
                         }
                     ],
                     "adverbs": [  ],
                     "dateTimes": [  ],
                     "cronString": [  ],
-                    "example": "Čo mi píše Adam<.+> na<vo> ?Facebooku na<v> ?Messengeri ?"
+                    "example": "Čo mi píše Adam na Facebooku na Messengeri ?"
                 }
             ]
         }
@@ -5573,42 +5797,2541 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
         return result;
     }, {
         "sentenceMemberRequirements": {
-            "example": "Napíš správu pre <object> citujem ... koniec citácie!",
-            "type": "command",
-            "predicates": {
-                "multiple": [
-                    {
-                        "verbs": [
+            "_or": [
+                {
+                    "type": "command",
+                    "predicates": {
+                        "multiple": [
                             {
-                                "baseWord": [
-                                    /(na|od)písať/,
-                                    /(od|p)oslať/
-                                ]
+                                "verbs": [
+                                    {
+                                        "_or": [
+                                            {
+                                                "baseWord": /.+/i,
+                                                "origWord": "Napíš",
+                                                "origIndex": 0,
+                                                "unknownWord": false,
+                                                "wordUsingFrequency": 29691,
+                                                "pos": {
+                                                    "key": "V",
+                                                    "name": "Slovní druh",
+                                                    "value": "sloveso",
+                                                    "subpos": {
+                                                        "key": "i",
+                                                        "value": "rozkazovacie",
+                                                        "example": "(i) rozkazovacie --> example: dělejme"
+                                                    }
+                                                },
+                                                "number": {
+                                                    "key": "S",
+                                                    "name": "Číslo",
+                                                    "value": "jednotné",
+                                                    "example": "(S) jednotné --> example: malá noha"
+                                                },
+                                                "person": {
+                                                    "key": "2",
+                                                    "name": "Osoba",
+                                                    "value": "2.",
+                                                    "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                                },
+                                                "negation": {
+                                                    "key": "A",
+                                                    "name": "Negace",
+                                                    "value": "bez negácie",
+                                                    "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                }
+                                            }, {
+                                                "origWord": /.+/i,
+                                                "baseWord": /napísať|odpísať|(od|p)oslať/i,
+                                                "origIndex": 0,
+                                                "unknownWord": false,
+                                                "wordUsingFrequency": 29691,
+                                                "pos": {
+                                                    "key": "V",
+                                                    "name": "Slovní druh",
+                                                    "value": "sloveso",
+                                                    "subpos": {
+                                                        "key": "i",
+                                                        "value": "rozkazovacie",
+                                                        "example": "(i) rozkazovacie --> example: dělejme"
+                                                    }
+                                                },
+                                                "number": {
+                                                    "key": "S",
+                                                    "name": "Číslo",
+                                                    "value": "jednotné",
+                                                    "example": "(S) jednotné --> example: malá noha"
+                                                },
+                                                "person": {
+                                                    "key": "2",
+                                                    "name": "Osoba",
+                                                    "value": "2.",
+                                                    "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                                },
+                                                "negation": {
+                                                    "key": "A",
+                                                    "name": "Negace",
+                                                    "value": "bez negácie",
+                                                    "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "propName": { "napíš": "required" }
                             }
                         ]
-                    }
-                ]
-            },
-            "objects": [
-                {
-                    "multiple": [
+                    },
+                    "subjects": {
+                        "multiple": [
+                            {
+                                "_or": [
+                                    {
+                                        "baseWord": /.+/i,
+                                        "origWord": "ty",
+                                        "origIndex": -1,
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
+                                        },
+                                        "case": {
+                                            "name": "Pád",
+                                            "key": "1",
+                                            "value": "nominatív"
+                                        },
+                                        "person": {
+                                            "key": "2",
+                                            "name": "Osoba",
+                                            "value": "2.",
+                                            "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                        },
+                                        "attributes": [  ],
+                                        "values": [  ],
+                                        "pos": {
+                                            "name": "Slovní druh",
+                                            "key": "P",
+                                            "value": "zámeno",
+                                            "subpos": {
+                                                "key": "P",
+                                                "value": "osobné"
+                                            }
+                                        }
+                                    }, {
+                                        "origWord": /.+/i,
+                                        "baseWord": /ty/i,
+                                        "origIndex": -1,
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
+                                        },
+                                        "case": {
+                                            "name": "Pád",
+                                            "key": "1",
+                                            "value": "nominatív"
+                                        },
+                                        "person": {
+                                            "key": "2",
+                                            "name": "Osoba",
+                                            "value": "2.",
+                                            "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                        },
+                                        "attributes": [  ],
+                                        "values": [  ],
+                                        "pos": {
+                                            "name": "Slovní druh",
+                                            "key": "P",
+                                            "value": "zámeno",
+                                            "subpos": {
+                                                "key": "P",
+                                                "value": "osobné"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "propName": { "ty": "optional" }
+                    },
+                    "objects": [
                         {
-                            "origWord": "správu"
-                        }
-                    ]
-                }, {
-                    "multiple": [
-                        {
-                            "_or": [
+                            "multiple": [
                                 {
-                                    "case": { "key": "3" }
-                                }, {
-                                    "preposition": { "origWord": "pre" }
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "správu",
+                                            "origIndex": 2,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 67277,
+                                            "explanation": "spravovanie;_inštitúcia",
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nový/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /správa/i,
+                                            "origIndex": 2,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 67277,
+                                            "explanation": "spravovanie;_inštitúcia",
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nový/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }
+                                    ]
                                 }
-                            ]
+                            ],
+                            "propName": { "správu": "optional" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Adamovi",
+                                            "origIndex": 3,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 5325,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "M",
+                                                "name": "Rod",
+                                                "value": "mužský - životný",
+                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "3",
+                                                "name": "Pád",
+                                                "value": "datív",
+                                                "example": "(3) [komu/čomu] datív --> example: ženě, ženám"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Adam|.+/i,
+                                            "origIndex": 3,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 5325,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "M",
+                                                "name": "Rod",
+                                                "value": "mužský - životný",
+                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "3",
+                                                "name": "Pád",
+                                                "value": "datív",
+                                                "example": "(3) [komu/čomu] datív --> example: ženě, ženám"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "adamovi": "required" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Facebooku",
+                                            "origIndex": 5,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 5319,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 4,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|vo|z/i,
+                                                        "origIndex": 4,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Facebook/i,
+                                            "origIndex": 5,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 5319,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 4,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|vo|z/i,
+                                                        "origIndex": 4,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "facebooku": "optional" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Messengeri",
+                                            "origIndex": 7,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 258,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 6,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|v/i,
+                                                        "origIndex": 6,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Messenger/i,
+                                            "origIndex": 7,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 258,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 6,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|v/i,
+                                                        "origIndex": 6,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "messengeri": "optional" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Messengera",
+                                            "origIndex": 9,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 0,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "X",
+                                                "name": "Číslo",
+                                                "value": "pomnožné",
+                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                            },
+                                            "case": {
+                                                "key": "X",
+                                                "name": "Pád",
+                                                "value": "neurčitý",
+                                                "example": "(X) neurčitý --> example: finále"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "z",
+                                                            "origIndex": 8,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /z/i,
+                                                            "origIndex": 8,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Messengera/i,
+                                            "origIndex": 9,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 0,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "X",
+                                                "name": "Číslo",
+                                                "value": "pomnožné",
+                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                            },
+                                            "case": {
+                                                "key": "X",
+                                                "name": "Pád",
+                                                "value": "neurčitý",
+                                                "example": "(X) neurčitý --> example: finále"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "z",
+                                                            "origIndex": 8,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /z/i,
+                                                            "origIndex": 8,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "messengera": "optional" }
                         }
                     ],
-                    "propName": { "friend": "required" }
+                    "adverbs": [  ],
+                    "dateTimes": [  ],
+                    "cronString": [  ],
+                    "example": "Napíš novú správu Adamovi na Facebooku na Messengeri z Messengera !"
+                }, {
+                    "type": "command",
+                    "predicates": {
+                        "multiple": [
+                            {
+                                "verbs": [
+                                    {
+                                        "_or": [
+                                            {
+                                                "baseWord": /.+/i,
+                                                "origWord": "Napíš",
+                                                "origIndex": 0,
+                                                "unknownWord": false,
+                                                "wordUsingFrequency": 29691,
+                                                "pos": {
+                                                    "key": "V",
+                                                    "name": "Slovní druh",
+                                                    "value": "sloveso",
+                                                    "subpos": {
+                                                        "key": "i",
+                                                        "value": "rozkazovacie",
+                                                        "example": "(i) rozkazovacie --> example: dělejme"
+                                                    }
+                                                },
+                                                "number": {
+                                                    "key": "S",
+                                                    "name": "Číslo",
+                                                    "value": "jednotné",
+                                                    "example": "(S) jednotné --> example: malá noha"
+                                                },
+                                                "person": {
+                                                    "key": "2",
+                                                    "name": "Osoba",
+                                                    "value": "2.",
+                                                    "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                                },
+                                                "negation": {
+                                                    "key": "A",
+                                                    "name": "Negace",
+                                                    "value": "bez negácie",
+                                                    "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                }
+                                            }, {
+                                                "origWord": /.+/i,
+                                                "baseWord": /napísať|odpísať|(od|p)oslať/i,
+                                                "origIndex": 0,
+                                                "unknownWord": false,
+                                                "wordUsingFrequency": 29691,
+                                                "pos": {
+                                                    "key": "V",
+                                                    "name": "Slovní druh",
+                                                    "value": "sloveso",
+                                                    "subpos": {
+                                                        "key": "i",
+                                                        "value": "rozkazovacie",
+                                                        "example": "(i) rozkazovacie --> example: dělejme"
+                                                    }
+                                                },
+                                                "number": {
+                                                    "key": "S",
+                                                    "name": "Číslo",
+                                                    "value": "jednotné",
+                                                    "example": "(S) jednotné --> example: malá noha"
+                                                },
+                                                "person": {
+                                                    "key": "2",
+                                                    "name": "Osoba",
+                                                    "value": "2.",
+                                                    "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                                },
+                                                "negation": {
+                                                    "key": "A",
+                                                    "name": "Negace",
+                                                    "value": "bez negácie",
+                                                    "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "propName": { "napíš": "required" }
+                            }
+                        ]
+                    },
+                    "subjects": {
+                        "multiple": [
+                            {
+                                "_or": [
+                                    {
+                                        "baseWord": /.+/i,
+                                        "origWord": "ty",
+                                        "origIndex": -1,
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
+                                        },
+                                        "case": {
+                                            "name": "Pád",
+                                            "key": "1",
+                                            "value": "nominatív"
+                                        },
+                                        "person": {
+                                            "key": "2",
+                                            "name": "Osoba",
+                                            "value": "2.",
+                                            "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                        },
+                                        "attributes": [  ],
+                                        "values": [  ],
+                                        "pos": {
+                                            "name": "Slovní druh",
+                                            "key": "P",
+                                            "value": "zámeno",
+                                            "subpos": {
+                                                "key": "P",
+                                                "value": "osobné"
+                                            }
+                                        }
+                                    }, {
+                                        "origWord": /.+/i,
+                                        "baseWord": /ty/i,
+                                        "origIndex": -1,
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
+                                        },
+                                        "case": {
+                                            "name": "Pád",
+                                            "key": "1",
+                                            "value": "nominatív"
+                                        },
+                                        "person": {
+                                            "key": "2",
+                                            "name": "Osoba",
+                                            "value": "2.",
+                                            "example": "(2) 2. --> example: píšeš, píšete, ty"
+                                        },
+                                        "attributes": [  ],
+                                        "values": [  ],
+                                        "pos": {
+                                            "name": "Slovní druh",
+                                            "key": "P",
+                                            "value": "zámeno",
+                                            "subpos": {
+                                                "key": "P",
+                                                "value": "osobné"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "propName": { "ty": "optional" }
+                    },
+                    "objects": [
+                        {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "správu",
+                                            "origIndex": 2,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 67277,
+                                            "explanation": "spravovanie;_inštitúcia",
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nový/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /správa/i,
+                                            "origIndex": 2,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 67277,
+                                            "explanation": "spravovanie;_inštitúcia",
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "novú",
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /nový/i,
+                                                            "origIndex": 1,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 261966,
+                                                            "pos": {
+                                                                "key": "A",
+                                                                "name": "Slovní druh",
+                                                                "value": "prídavné meno",
+                                                                "subpos": {
+                                                                    "key": "A",
+                                                                    "value": "základné",
+                                                                    "example": "(A) základné --> example: technický"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "F",
+                                                                "name": "Rod",
+                                                                "value": "ženský",
+                                                                "example": "(F) ženský --> example: píseň, malá"
+                                                            },
+                                                            "number": {
+                                                                "key": "S",
+                                                                "name": "Číslo",
+                                                                "value": "jednotné",
+                                                                "example": "(S) jednotné --> example: malá noha"
+                                                            },
+                                                            "case": {
+                                                                "key": "4",
+                                                                "name": "Pád",
+                                                                "value": "akuzatív",
+                                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                            },
+                                                            "grade": {
+                                                                "key": "1",
+                                                                "name": "Stupeň",
+                                                                "value": "1.",
+                                                                "example": "(1) 1. --> example: velká, pěkně"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "novú": "optional" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "správu": "required" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Adama",
+                                            "origIndex": 4,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 5325,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "M",
+                                                "name": "Rod",
+                                                "value": "mužský - životný",
+                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "pre",
+                                                        "origIndex": 3,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 578505,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "4",
+                                                            "name": "Pád",
+                                                            "value": "akuzatív",
+                                                            "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                        },
+                                                        "propName": { "pre": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /pre/i,
+                                                        "origIndex": 3,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 578505,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "4",
+                                                            "name": "Pád",
+                                                            "value": "akuzatív",
+                                                            "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                        },
+                                                        "propName": { "pre": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Adam|.+/i,
+                                            "origIndex": 4,
+                                            "unknownWord": false,
+                                            "wordUsingFrequency": 5325,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "M",
+                                                "name": "Rod",
+                                                "value": "mužský - životný",
+                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "4",
+                                                "name": "Pád",
+                                                "value": "akuzatív",
+                                                "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "pre",
+                                                        "origIndex": 3,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 578505,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "4",
+                                                            "name": "Pád",
+                                                            "value": "akuzatív",
+                                                            "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                        },
+                                                        "propName": { "pre": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /pre/i,
+                                                        "origIndex": 3,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 578505,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "4",
+                                                            "name": "Pád",
+                                                            "value": "akuzatív",
+                                                            "example": "(4) [koho/čo] akuzatív --> example: ženu, ženy"
+                                                        },
+                                                        "propName": { "pre": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "adama": "required" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Facebooku",
+                                            "origIndex": 6,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 5319,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 5,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|vo|z/i,
+                                                        "origIndex": 5,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Facebook/i,
+                                            "origIndex": 6,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 5319,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 5,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|vo|z/i,
+                                                        "origIndex": 5,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "facebooku": "optional" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Messengeri",
+                                            "origIndex": 8,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 258,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 7,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|v/i,
+                                                        "origIndex": 7,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Messenger/i,
+                                            "origIndex": 8,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 258,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "I",
+                                                "name": "Rod",
+                                                "value": "mužský - neživotný",
+                                                "example": "(I) mužský - neživotný --> example: dům, malý"
+                                            },
+                                            "number": {
+                                                "key": "S",
+                                                "name": "Číslo",
+                                                "value": "jednotné",
+                                                "example": "(S) jednotné --> example: malá noha"
+                                            },
+                                            "case": {
+                                                "key": "6",
+                                                "name": "Pád",
+                                                "value": "lokál",
+                                                "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [  ],
+                                            "values": [  ],
+                                            "preposition": {
+                                                "_or": [
+                                                    {
+                                                        "baseWord": /.+/i,
+                                                        "origWord": "na",
+                                                        "origIndex": 7,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }, {
+                                                        "origWord": /.+/i,
+                                                        "baseWord": /na|v/i,
+                                                        "origIndex": 7,
+                                                        "unknownWord": false,
+                                                        "wordUsingFrequency": 2747148,
+                                                        "pos": {
+                                                            "key": "R",
+                                                            "name": "Slovní druh",
+                                                            "value": "predložka",
+                                                            "subpos": {
+                                                                "key": "R",
+                                                                "value": "bez vokálu",
+                                                                "example": "(R) bez vokálu --> example: v"
+                                                            }
+                                                        },
+                                                        "case": {
+                                                            "key": "6",
+                                                            "name": "Pád",
+                                                            "value": "lokál",
+                                                            "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
+                                                        },
+                                                        "propName": { "na": "required" }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "messengeri": "optional" }
+                        }, {
+                            "multiple": [
+                                {
+                                    "_or": [
+                                        {
+                                            "baseWord": /.+/i,
+                                            "origWord": "Messengera",
+                                            "origIndex": 10,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 0,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "X",
+                                                "name": "Číslo",
+                                                "value": "pomnožné",
+                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                            },
+                                            "case": {
+                                                "key": "X",
+                                                "name": "Pád",
+                                                "value": "neurčitý",
+                                                "example": "(X) neurčitý --> example: finále"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "z",
+                                                            "origIndex": 9,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /z/i,
+                                                            "origIndex": 9,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }, {
+                                            "origWord": /.+/i,
+                                            "baseWord": /Messengera/i,
+                                            "origIndex": 10,
+                                            "unknownWord": true,
+                                            "wordUsingFrequency": 0,
+                                            "pos": {
+                                                "key": "N",
+                                                "name": "Slovní druh",
+                                                "value": "podstatné meno",
+                                                "subpos": {
+                                                    "key": "N",
+                                                    "value": "prednastavené",
+                                                    "example": "(N) prednastavené"
+                                                }
+                                            },
+                                            "gender": {
+                                                "key": "F",
+                                                "name": "Rod",
+                                                "value": "ženský",
+                                                "example": "(F) ženský --> example: píseň, malá"
+                                            },
+                                            "number": {
+                                                "key": "X",
+                                                "name": "Číslo",
+                                                "value": "pomnožné",
+                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                            },
+                                            "case": {
+                                                "key": "X",
+                                                "name": "Pád",
+                                                "value": "neurčitý",
+                                                "example": "(X) neurčitý --> example: finále"
+                                            },
+                                            "negation": {
+                                                "key": "A",
+                                                "name": "Negace",
+                                                "value": "bez negácie",
+                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                            },
+                                            "attributes": [
+                                                {
+                                                    "_or": [
+                                                        {
+                                                            "baseWord": /.+/i,
+                                                            "origWord": "z",
+                                                            "origIndex": 9,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }, {
+                                                            "origWord": /.+/i,
+                                                            "baseWord": /z/i,
+                                                            "origIndex": 9,
+                                                            "unknownWord": false,
+                                                            "wordUsingFrequency": 1337560,
+                                                            "explanation": "označenie_pomocou_písmena",
+                                                            "pos": {
+                                                                "key": "N",
+                                                                "name": "Slovní druh",
+                                                                "value": "podstatné meno",
+                                                                "subpos": {
+                                                                    "key": "N",
+                                                                    "value": "prednastavené",
+                                                                    "example": "(N) prednastavené"
+                                                                }
+                                                            },
+                                                            "gender": {
+                                                                "key": "N",
+                                                                "name": "Rod",
+                                                                "value": "stredný",
+                                                                "example": "(N) stredný --> example: město, malé, běhalo"
+                                                            },
+                                                            "number": {
+                                                                "key": "X",
+                                                                "name": "Číslo",
+                                                                "value": "pomnožné",
+                                                                "example": "(X) pomnožné --> example: Any finále, jejich"
+                                                            },
+                                                            "case": {
+                                                                "key": "X",
+                                                                "name": "Pád",
+                                                                "value": "neurčitý",
+                                                                "example": "(X) neurčitý --> example: finále"
+                                                            },
+                                                            "negation": {
+                                                                "key": "A",
+                                                                "name": "Negace",
+                                                                "value": "bez negácie",
+                                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                            },
+                                                            "propName": { "z": "required" }
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "values": [  ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "propName": { "messengera": "optional" }
+                        }
+                    ],
+                    "adverbs": [  ],
+                    "dateTimes": [  ],
+                    "cronString": [  ],
+                    "example": "Napíš novú správu pre Adama na Facebooku na Messengeri z Messengera !"
                 }
             ]
         }
@@ -5621,7 +8344,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
             await ctx.speech('Pripravujem Facebook správu ...');
             await options.tab.viewTab();
             await api.login(ctx.config);
-            
+    
             let friends = ctx.propName['adamovi'].multiple.map(f => f.baseWord);
             let realNames = await api.sendMessage(friends, '');
     

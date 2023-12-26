@@ -55,7 +55,7 @@ module.exports = addPlugin({
 {
     sentenceMemberRequirementStrings: [
         'Písal<(na|od)?písať> mi ?niekto na<vo> ?Facebooku na<v> ?Messengeri na ?Messenger do ?Messengera ?novú ?správu ?',
-        'Mám ?novú správu na<vo> ?Facebooku na<v> ?Messengeri ?',
+        'Mám ?nejakú<dajaký> ?novú správu na<vo> ?Facebooku na<v> ?Messengeri ?',
         'Prišla ?mi ?nejaká<dajaký> ?nová správa na ?Facebook do ?Facebooku na ?Messenger do ?Messengera ?',
     ],
 }, async ctx => {
@@ -127,18 +127,6 @@ module.exports = addPlugin({
         'Napíš<odpísať|(od|p)oslať> ?novú ?správu Adamovi<.+> na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !',
         'Napíš<odpísať|(od|p)oslať> ?novú správu pre Adama<.+> na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
     ],
-    sentenceMemberRequirements: {
-        example: 'Napíš správu pre <object> citujem ... koniec citácie!',
-        type: 'command',
-        predicates: {multiple: [{verbs: [ {baseWord: [/(na|od)písať/, /(od|p)oslať/]} ]}]},
-        objects: [
-            {multiple: [{origWord: 'správu'}]},
-            {multiple: [{_or: [
-                {case: {/* value: 'datív', */ key: '3'}},
-                {preposition: {origWord: 'pre'}},
-            ]}], propName: {friend: 'required'}},
-        ],
-    },
 }, async ctx => {
     let result = '';
 
@@ -147,7 +135,7 @@ module.exports = addPlugin({
         await ctx.speech('Pripravujem Facebook správu ...');
         await options.tab.viewTab();
         await api.login(ctx.config);
-        
+
         let friends = ctx.propName['adamovi'].multiple.map(f => f.baseWord);
         let realNames = await api.sendMessage(friends, '');
 
