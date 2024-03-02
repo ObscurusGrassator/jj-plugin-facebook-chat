@@ -54,7 +54,7 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Písal<(na|od)?písať> mi ?niekto na<vo> ?Facebooku na<v> ?Messengeri na ?Messenger do ?Messengera ?novú ?správu ?',
+        'Písal<(na|od)?písať> ?mi ?niekto na<vo> ?Facebooku na<v> ?Messengeri na ?Messenger do ?Messengera ?novú ?správu ?',
         'Mám ?nejakú<dajaký> ?novú správu na<vo> ?Facebooku na<v> ?Messengeri ?',
         'Prišla ?mi ?nejaká<dajaký> ?nová správa na ?Facebook do ?Facebooku na ?Messenger do ?Messengera ?',
     ],
@@ -79,7 +79,7 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Prečítaj mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
+        'Prečíta<ukázať|zobraziť>j ?mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
     ],
 }, async ctx => {
     let result = '';
@@ -101,7 +101,7 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Čo mi píše Adam<.+> na<vo> ?Facebooku na<v> ?Messengeri ?',
+        'Čo ?mi píše Adam<.+> na<vo> ?Facebooku na<v> ?Messengeri ?',
     ],
 }, async ctx => {
     let result = '';

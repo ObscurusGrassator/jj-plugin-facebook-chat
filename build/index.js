@@ -322,7 +322,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "mi": "required" }
+                            "propName": { "mi": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4068,7 +4068,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                 }
                                             }, {
                                                 "origWord": /.+/i,
-                                                "baseWord": /prečítať/i,
+                                                "baseWord": /prečítať|ukázať|zobraziť/i,
                                                 "origIndex": 0,
                                                 "unknownWord": false,
                                                 "wordUsingFrequency": 9136,
@@ -4104,7 +4104,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "prečítaj": "required" }
+                                "propName": { "prečíta": "required" }
                             }
                         ]
                     },
@@ -4263,7 +4263,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "mi": "required" }
+                            "propName": { "j": "required" }
                         }, {
                             "multiple": [
                                 {
@@ -4422,7 +4422,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "mi": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /všetko/i,
@@ -4457,7 +4457,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "mi": "optional" }
                                                         }
                                                     ]
                                                 }, {
@@ -4508,7 +4508,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "nové": "required" }
+                                                            "propName": { "všetky": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
@@ -4555,7 +4555,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "nové": "required" }
+                                                            "propName": { "všetky": "optional" }
                                                         }
                                                     ]
                                                 }
@@ -4639,7 +4639,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "mi": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /všetko/i,
@@ -4674,7 +4674,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "mi": "optional" }
                                                         }
                                                     ]
                                                 }, {
@@ -4725,7 +4725,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "nové": "required" }
+                                                            "propName": { "všetky": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
@@ -4772,7 +4772,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "nové": "required" }
+                                                            "propName": { "všetky": "optional" }
                                                         }
                                                     ]
                                                 }
@@ -4782,7 +4782,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "všetky": "optional" }
+                            "propName": { "mi": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4853,10 +4853,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "správy": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na|vo|z/i,
+                                                        "baseWord": /na/i,
                                                         "origIndex": 5,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -4876,13 +4876,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "správy": "required" }
                                                     }
                                                 ]
                                             }
                                         }, {
                                             "origWord": /.+/i,
-                                            "baseWord": /Facebook/i,
+                                            "baseWord": /Facebook|vo|z/i,
                                             "origIndex": 6,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 5319,
@@ -4946,10 +4946,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "správy": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na|vo|z/i,
+                                                        "baseWord": /na/i,
                                                         "origIndex": 5,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -4969,7 +4969,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "správy": "required" }
                                                     }
                                                 ]
                                             }
@@ -4977,7 +4977,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "facebooku": "optional" }
+                            "propName": { "na": "required" }
                         }, {
                             "multiple": [
                                 {
@@ -5048,10 +5048,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "facebooku": "optional" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na|v/i,
+                                                        "baseWord": /na/i,
                                                         "origIndex": 7,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -5071,13 +5071,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "facebooku": "optional" }
                                                     }
                                                 ]
                                             }
                                         }, {
                                             "origWord": /.+/i,
-                                            "baseWord": /Messenger/i,
+                                            "baseWord": /Messenger|v/i,
                                             "origIndex": 8,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 258,
@@ -5141,10 +5141,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "facebooku": "optional" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na|v/i,
+                                                        "baseWord": /na/i,
                                                         "origIndex": 7,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -5164,7 +5164,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "na": "required" }
+                                                        "propName": { "facebooku": "optional" }
                                                     }
                                                 ]
                                             }
@@ -5172,7 +5172,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "messengeri": "optional" }
+                            "propName": { "na": "required" }
                         }, {
                             "multiple": [
                                 {
@@ -5261,7 +5261,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "z": "required" }
+                                                            "propName": { "messengeri": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /z/i,
@@ -5303,7 +5303,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "z": "required" }
+                                                            "propName": { "messengeri": "optional" }
                                                         }
                                                     ]
                                                 }
@@ -5393,7 +5393,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "z": "required" }
+                                                            "propName": { "messengeri": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /z/i,
@@ -5435,7 +5435,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "z": "required" }
+                                                            "propName": { "messengeri": "optional" }
                                                         }
                                                     ]
                                                 }
@@ -5445,7 +5445,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "messengera": "optional" }
+                            "propName": { "z": "required" }
                         }
                     ],
                     "adverbs": [  ],
@@ -5722,7 +5722,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "mi": "required" }
+                            "propName": { "mi": "optional" }
                         }, {
                             "multiple": [
                                 {
