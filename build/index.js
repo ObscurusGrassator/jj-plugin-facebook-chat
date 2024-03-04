@@ -4104,7 +4104,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                         ]
                                     }
                                 ],
-                                "propName": { "prečíta": "required" }
+                                "propName": { "prečítaj": "required" }
                             }
                         ]
                     },
@@ -4263,7 +4263,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "j": "required" }
+                            "propName": { "mi": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4422,7 +4422,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "mi": "optional" }
+                                                            "propName": { "všetky": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /všetko/i,
@@ -4457,7 +4457,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "mi": "optional" }
+                                                            "propName": { "všetky": "optional" }
                                                         }
                                                     ]
                                                 }, {
@@ -4508,7 +4508,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "nové": "required" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
@@ -4555,7 +4555,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "nové": "required" }
                                                         }
                                                     ]
                                                 }
@@ -4639,7 +4639,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "mi": "optional" }
+                                                            "propName": { "všetky": "optional" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /všetko/i,
@@ -4674,7 +4674,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "nominatív",
                                                                 "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                                             },
-                                                            "propName": { "mi": "optional" }
+                                                            "propName": { "všetky": "optional" }
                                                         }
                                                     ]
                                                 }, {
@@ -4725,7 +4725,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "nové": "required" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /nový/i,
@@ -4772,7 +4772,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "všetky": "optional" }
+                                                            "propName": { "nové": "required" }
                                                         }
                                                     ]
                                                 }
@@ -4782,7 +4782,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "mi": "optional" }
+                            "propName": { "všetky": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -4853,10 +4853,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "správy": "required" }
+                                                        "propName": { "na": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na/i,
+                                                        "baseWord": /na|vo|z/i,
                                                         "origIndex": 5,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -4876,13 +4876,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "správy": "required" }
+                                                        "propName": { "na": "required" }
                                                     }
                                                 ]
                                             }
                                         }, {
                                             "origWord": /.+/i,
-                                            "baseWord": /Facebook|vo|z/i,
+                                            "baseWord": /Facebook/i,
                                             "origIndex": 6,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 5319,
@@ -4946,10 +4946,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "správy": "required" }
+                                                        "propName": { "na": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na/i,
+                                                        "baseWord": /na|vo|z/i,
                                                         "origIndex": 5,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -4969,7 +4969,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "správy": "required" }
+                                                        "propName": { "na": "required" }
                                                     }
                                                 ]
                                             }
@@ -4977,7 +4977,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "na": "required" }
+                            "propName": { "facebooku": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -5048,10 +5048,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "facebooku": "optional" }
+                                                        "propName": { "na": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na/i,
+                                                        "baseWord": /na|v/i,
                                                         "origIndex": 7,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -5071,13 +5071,13 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "facebooku": "optional" }
+                                                        "propName": { "na": "required" }
                                                     }
                                                 ]
                                             }
                                         }, {
                                             "origWord": /.+/i,
-                                            "baseWord": /Messenger|v/i,
+                                            "baseWord": /Messenger/i,
                                             "origIndex": 8,
                                             "unknownWord": true,
                                             "wordUsingFrequency": 258,
@@ -5141,10 +5141,10 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "facebooku": "optional" }
+                                                        "propName": { "na": "required" }
                                                     }, {
                                                         "origWord": /.+/i,
-                                                        "baseWord": /na/i,
+                                                        "baseWord": /na|v/i,
                                                         "origIndex": 7,
                                                         "unknownWord": false,
                                                         "wordUsingFrequency": 2747148,
@@ -5164,7 +5164,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                             "value": "lokál",
                                                             "example": "(6) [o kom/o čom] lokál --> example: ženě, ženách"
                                                         },
-                                                        "propName": { "facebooku": "optional" }
+                                                        "propName": { "na": "required" }
                                                     }
                                                 ]
                                             }
@@ -5172,7 +5172,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "na": "required" }
+                            "propName": { "messengeri": "optional" }
                         }, {
                             "multiple": [
                                 {
@@ -5261,7 +5261,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "messengeri": "optional" }
+                                                            "propName": { "z": "required" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /z/i,
@@ -5303,7 +5303,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "messengeri": "optional" }
+                                                            "propName": { "z": "required" }
                                                         }
                                                     ]
                                                 }
@@ -5393,7 +5393,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "messengeri": "optional" }
+                                                            "propName": { "z": "required" }
                                                         }, {
                                                             "origWord": /.+/i,
                                                             "baseWord": /z/i,
@@ -5435,7 +5435,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                                                 "value": "bez negácie",
                                                                 "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                                             },
-                                                            "propName": { "messengeri": "optional" }
+                                                            "propName": { "z": "required" }
                                                         }
                                                     ]
                                                 }
@@ -5445,7 +5445,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "z": "required" }
+                            "propName": { "messengera": "optional" }
                         }
                     ],
                     "adverbs": [  ],
@@ -5589,49 +5589,85 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                 "_or": [
                                     {
                                         "baseWord": /.+/i,
-                                        "origWord": "Čo",
-                                        "origIndex": 0,
+                                        "origWord": "Adam",
+                                        "origIndex": 3,
                                         "unknownWord": false,
-                                        "wordUsingFrequency": 460807,
+                                        "wordUsingFrequency": 5325,
                                         "pos": {
-                                            "key": "P",
+                                            "key": "N",
                                             "name": "Slovní druh",
-                                            "value": "zámeno",
+                                            "value": "podstatné meno",
                                             "subpos": {
-                                                "key": "Q",
-                                                "value": "vzťažné alebo opytovacie čo",
-                                                "example": "(Q) vzťažné alebo opytovacie --> example: co, copak, cožpak"
+                                                "key": "N",
+                                                "value": "prednastavené",
+                                                "example": "(N) prednastavené"
                                             }
+                                        },
+                                        "gender": {
+                                            "key": "M",
+                                            "name": "Rod",
+                                            "value": "mužský - životný",
+                                            "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                        },
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
                                         },
                                         "case": {
                                             "key": "1",
                                             "name": "Pád",
                                             "value": "nominatív",
                                             "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
+                                        },
+                                        "negation": {
+                                            "key": "A",
+                                            "name": "Negace",
+                                            "value": "bez negácie",
+                                            "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                         },
                                         "attributes": [  ],
                                         "values": [  ]
                                     }, {
                                         "origWord": /.+/i,
-                                        "baseWord": /čo/i,
-                                        "origIndex": 0,
+                                        "baseWord": /Adam|.+/i,
+                                        "origIndex": 3,
                                         "unknownWord": false,
-                                        "wordUsingFrequency": 460807,
+                                        "wordUsingFrequency": 5325,
                                         "pos": {
-                                            "key": "P",
+                                            "key": "N",
                                             "name": "Slovní druh",
-                                            "value": "zámeno",
+                                            "value": "podstatné meno",
                                             "subpos": {
-                                                "key": "Q",
-                                                "value": "vzťažné alebo opytovacie čo",
-                                                "example": "(Q) vzťažné alebo opytovacie --> example: co, copak, cožpak"
+                                                "key": "N",
+                                                "value": "prednastavené",
+                                                "example": "(N) prednastavené"
                                             }
+                                        },
+                                        "gender": {
+                                            "key": "M",
+                                            "name": "Rod",
+                                            "value": "mužský - životný",
+                                            "example": "(M) mužský - životný --> example: učitel, mladí, oni"
+                                        },
+                                        "number": {
+                                            "key": "S",
+                                            "name": "Číslo",
+                                            "value": "jednotné",
+                                            "example": "(S) jednotné --> example: malá noha"
                                         },
                                         "case": {
                                             "key": "1",
                                             "name": "Pád",
                                             "value": "nominatív",
                                             "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
+                                        },
+                                        "negation": {
+                                            "key": "A",
+                                            "name": "Negace",
+                                            "value": "bez negácie",
+                                            "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
                                         },
                                         "attributes": [  ],
                                         "values": [  ]
@@ -5639,7 +5675,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                 ]
                             }
                         ],
-                        "propName": { "čo": "required" }
+                        "propName": { "adam": "required" }
                     },
                     "objects": [
                         {
@@ -5729,85 +5765,49 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     "_or": [
                                         {
                                             "baseWord": /.+/i,
-                                            "origWord": "Adam",
-                                            "origIndex": 3,
+                                            "origWord": "Čo",
+                                            "origIndex": 0,
                                             "unknownWord": false,
-                                            "wordUsingFrequency": 5325,
+                                            "wordUsingFrequency": 460807,
                                             "pos": {
-                                                "key": "N",
+                                                "key": "P",
                                                 "name": "Slovní druh",
-                                                "value": "podstatné meno",
+                                                "value": "zámeno",
                                                 "subpos": {
-                                                    "key": "N",
-                                                    "value": "prednastavené",
-                                                    "example": "(N) prednastavené"
+                                                    "key": "Q",
+                                                    "value": "vzťažné alebo opytovacie čo",
+                                                    "example": "(Q) vzťažné alebo opytovacie --> example: co, copak, cožpak"
                                                 }
                                             },
-                                            "gender": {
-                                                "key": "M",
-                                                "name": "Rod",
-                                                "value": "mužský - životný",
-                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
-                                            },
-                                            "number": {
-                                                "key": "S",
-                                                "name": "Číslo",
-                                                "value": "jednotné",
-                                                "example": "(S) jednotné --> example: malá noha"
-                                            },
                                             "case": {
-                                                "key": "5",
+                                                "key": "1",
                                                 "name": "Pád",
-                                                "value": "vokatív",
-                                                "example": "(5) vokatív --> example: synku, mami, tati, ženo, ženy"
-                                            },
-                                            "negation": {
-                                                "key": "A",
-                                                "name": "Negace",
-                                                "value": "bez negácie",
-                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                "value": "nominatív",
+                                                "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                             },
                                             "attributes": [  ],
                                             "values": [  ]
                                         }, {
                                             "origWord": /.+/i,
-                                            "baseWord": /Adam|.+/i,
-                                            "origIndex": 3,
+                                            "baseWord": /čo/i,
+                                            "origIndex": 0,
                                             "unknownWord": false,
-                                            "wordUsingFrequency": 5325,
+                                            "wordUsingFrequency": 460807,
                                             "pos": {
-                                                "key": "N",
+                                                "key": "P",
                                                 "name": "Slovní druh",
-                                                "value": "podstatné meno",
+                                                "value": "zámeno",
                                                 "subpos": {
-                                                    "key": "N",
-                                                    "value": "prednastavené",
-                                                    "example": "(N) prednastavené"
+                                                    "key": "Q",
+                                                    "value": "vzťažné alebo opytovacie čo",
+                                                    "example": "(Q) vzťažné alebo opytovacie --> example: co, copak, cožpak"
                                                 }
                                             },
-                                            "gender": {
-                                                "key": "M",
-                                                "name": "Rod",
-                                                "value": "mužský - životný",
-                                                "example": "(M) mužský - životný --> example: učitel, mladí, oni"
-                                            },
-                                            "number": {
-                                                "key": "S",
-                                                "name": "Číslo",
-                                                "value": "jednotné",
-                                                "example": "(S) jednotné --> example: malá noha"
-                                            },
                                             "case": {
-                                                "key": "5",
+                                                "key": "1",
                                                 "name": "Pád",
-                                                "value": "vokatív",
-                                                "example": "(5) vokatív --> example: synku, mami, tati, ženo, ženy"
-                                            },
-                                            "negation": {
-                                                "key": "A",
-                                                "name": "Negace",
-                                                "value": "bez negácie",
-                                                "example": "(A) bez negácie --> example: velká, pěkně, přišel, ochota"
+                                                "value": "nominatív",
+                                                "example": "(1) [kto/čo] nominatív --> example: žena, ženy"
                                             },
                                             "attributes": [  ],
                                             "values": [  ]
@@ -5815,7 +5815,7 @@ module.exports = require("server/types/pluginFunctions.cjs").addPlugin(
                                     ]
                                 }
                             ],
-                            "propName": { "adam": "required" }
+                            "propName": { "čo": "required" }
                         }, {
                             "multiple": [
                                 {

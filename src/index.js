@@ -79,7 +79,7 @@ module.exports = addPlugin({
 
 {
     sentenceMemberRequirementStrings: [
-        'Prečíta<ukázať|zobraziť>j ?mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
+        'Prečítaj<ukázať|zobraziť> ?mi ?všetky nové správy na<vo|z> ?Facebooku na<v> ?Messengeri z ?Messengera !'
     ],
 }, async ctx => {
     let result = '';
