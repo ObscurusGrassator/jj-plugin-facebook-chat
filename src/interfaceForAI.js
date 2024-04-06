@@ -2,8 +2,6 @@ module.exports = class {
 
     async login() {}
 
-    async logout() {}
-
     /**
      * Send message by Facebook Messenger
      * @param { string } name
