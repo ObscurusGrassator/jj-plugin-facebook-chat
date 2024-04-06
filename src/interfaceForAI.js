@@ -10,9 +10,9 @@ module.exports = class {
     /**
      * Returns unread messages array by sender mame from Facebook Messenger
      * @param { Object } [options]
-     * @param { boolean } [options.makrAsReaded = true]
+     * @param { boolean } [options.makrAsReaded = false]
      * @param { string } [options.fromPersonName]
      * @returns { Promise<{[personName: string]: {message: string}[]}> }
      */
-    async getMessages({makrAsReaded = true, fromPersonName} = {}, closeBrowserTab = false) { return {}; }
+    async getMessages({makrAsReaded = false, fromPersonName} = {}, closeBrowserTab = false) { return {}; }
 };

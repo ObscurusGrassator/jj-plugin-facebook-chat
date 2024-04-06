@@ -149,11 +149,11 @@ module.exports = class FacebookChat {
     /**
      * Returns not readed messages array by sender mame from Facebook Messenger
      * @param { Object } [options]
-     * @param { boolean } [options.makrAsReaded = true]
+     * @param { boolean } [options.makrAsReaded = false]
      * @param { string } [options.fromPersonName]
      * @returns { Promise<{[name: string]: {message: string}[]}> }
      */
-    async getMessages({makrAsReaded = true, fromPersonName} = {}, closeBrowserTab = false) {
+    async getMessages({makrAsReaded = false, fromPersonName} = {}, closeBrowserTab = false) {
         /** @type {{ [name: string]: {message: string}[] }} */
         let result;
 
