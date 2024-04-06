@@ -1,9 +1,6 @@
 /** @typedef { import('./interfaceForAI.js') } InterfaceForAI */
 /** @implements { InterfaceForAI } */
 module.exports = class FacebookChat {
-    /** @type {{ users: {[user: string]: {lastMessage: string}} }} */ 
-    #lastMessages = {users: {}};
-
     constructor(options) {
         /**
          * @type { { browserTab: import('jjplugin').BrowserPuppeteer }
@@ -146,15 +143,18 @@ module.exports = class FacebookChat {
         return realName || false;
     }
 
+    /** @type {{ users: {[user: string]: {lastMessage: string}} }} */ 
+    #lastMessages = {users: {}};
+
     /**
      * Returns not readed messages array by sender mame from Facebook Messenger
      * @param { Object } [options]
      * @param { boolean } [options.makrAsReaded = true]
      * @param { string } [options.fromPersonName]
-     * @returns { Promise<{[name: string]: string[]}> }
+     * @returns { Promise<{[name: string]: {message: string}[]}> }
      */
     async getMessages({makrAsReaded = true, fromPersonName} = {}, closeBrowserTab = false) {
-        /** @type {{ [name: string]: string[] }} */
+        /** @type {{ [name: string]: {message: string}[] }} */
         let result;
 
         try {
@@ -164,7 +164,7 @@ module.exports = class FacebookChat {
             await this.login();
 
             result = await this.options.browserTab.sendRequest(async (utils, makrAsReaded, fromPersonName) => {
-                /** @type {{ [name: string]: string[] }} */
+                /** @type {{ [name: string]: {message: string}[] }} */
                 let messages = {};
                 let codeByName = {};
 
@@ -196,7 +196,7 @@ module.exports = class FacebookChat {
                         if (e && !lastColor) lastColor = window.getComputedStyle(e).color;
                         if (e && lastColor == window.getComputedStyle(e).color) {
                             // @ts-ignore
-                            messages[name].unshift(e.innerText);
+                            messages[name].unshift({message: e.innerText});
                         } else run++;
                     }
 
@@ -221,7 +221,7 @@ module.exports = class FacebookChat {
                     || new RegExp(fromPersonName, 'i').test(name)
                 )) {
                     for (let i in result[name]) {
-                        if (result[name][i] === this.#lastMessages.users[name]?.lastMessage) {
+                        if (result[name][i].message === this.#lastMessages.users[name]?.lastMessage) {
                             result[name] = result[name].slice(+i + 1);
                             if (!result[name].length) delete result[name];
                             break;
@@ -230,8 +230,8 @@ module.exports = class FacebookChat {
 
                     if (result[name]?.length) {
                         if (!this.#lastMessages.users[name])
-                             this.#lastMessages.users[name] = {lastMessage: result[name][result[name].length-1]};
-                        else this.#lastMessages.users[name].lastMessage = result[name][result[name].length-1];
+                             this.#lastMessages.users[name] = {lastMessage: result[name][result[name].length-1].message};
+                        else this.#lastMessages.users[name].lastMessage = result[name][result[name].length-1].message;
                     }
                 } else if (typeof fromPersonName == 'string') delete result[name];
             }
