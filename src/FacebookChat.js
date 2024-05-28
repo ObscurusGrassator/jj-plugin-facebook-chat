@@ -11,7 +11,7 @@ module.exports = class FacebookChat {
     }
 
     async login() {
-        await this.options.browserTab.sendRequest(async (utils, login, pass) => {
+        await this.options.browserTab.sendRequest(async utils => {
             /** @type { HTMLButtonElement } */
             let cookiebanner = document.querySelector('[data-cookiebanner="accept_only_essential_button"]');
             if (cookiebanner !== null) cookiebanner.click();
@@ -30,11 +30,15 @@ module.exports = class FacebookChat {
                 (/** @type { HTMLButtonElement } */ (
                     document.querySelector('#loginbutton') || document.querySelector('[name="login"]')
                 )).click();
-
-                // required after reload page - this timeout will aborted of reloading
-                await new Promise(res => { setTimeout(res, 5000); });
             }
         }, '$*', this.options.config.facebook.login.value, this.options.config.facebook.password.value);
+
+        // WTF? Čakanie na spasenie?
+        try {
+            await this.options.browserTab.sendRequest(async (utils, makrAsReaded, fromPersonName) => {
+                await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="button"] > [data-visualcompletion="ignore"]');
+            }, '$*');
+        } catch (err) {}
     }
 
     async logout() {
@@ -50,22 +54,21 @@ module.exports = class FacebookChat {
     }
 
     /**
-     * Send message by Facebook Messenger
-     * @param { string } name
+     * @param { string } personName
      * @param { string } message
      * @returns { Promise<void> }
      */
-    async sendMessage(name, message) {
+    async sendMessage(personName, message) {
         await this.options.speech('Pripravujem Facebook správu ...');
     
-        let realName = await this._sendMessage(name, '');
+        let realName = await this._sendMessage(personName, '');
 
         if (!realName) throw `Meno "${realName}" sa v blízkych kontaktoch nenachádza.`;
 
         message = message.replace(/ __? /g, ' ');
 
         if (await this.options.getSummaryAccept(`FacebookChat plugin: Môžem poslať správu priateľovi ${realName} s textom: ${message}`)) {
-            await this._sendMessage(name, message);
+            await this._sendMessage(personName, message);
             await this.options.speech('Odoslané.');
         } else {
             await this.options.speech('Príkaz bol zrušený.');
@@ -73,18 +76,18 @@ module.exports = class FacebookChat {
     }
 
     /**
-     * @param { string } name
+     * @param { string } personName
      * @param { string } message
      * @returns { Promise<string | false> }
      */
-    async _sendMessage(name, message) {    
+    async _sendMessage(personName, message) {    
         /** @type { String } */ let realName;
         try {
             await this.options.browserTab.pause.start();
             await this.options.browserTab.viewTab();
             await this.login();
 
-            realName = await this.options.browserTab.sendRequest(async (utils, name, message) => {
+            realName = await this.options.browserTab.sendRequest(async (utils, personName, message) => {
                 let realName;
                 let friendTabs = await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="row"]');
 
@@ -94,7 +97,7 @@ module.exports = class FacebookChat {
 
                     /** @type { HTMLDivElement } */
                     let friendTab = f.querySelector('[dir="auto"]');
-                    if (friendTab && new RegExp(name, 'i').test(friendTab.innerText)) {
+                    if (friendTab && new RegExp(personName, 'i').test(friendTab.innerText)) {
                         friendTab.click();
                         realName = friendTab.innerText;
                         break;
@@ -102,14 +105,14 @@ module.exports = class FacebookChat {
                 }
 
                 if (!realName) {
-                    await utils.typingToElement('[role="navigation"] input[type="search"]', name);
+                    await utils.typingToElement(personName, '[role="navigation"] input[type="search"]');
 
                     // searching in rearch input
-                    let findedFindeds = await utils.waitForElementAll(`[role="listbox"] > li:first-child li:not([id="${name}"])`);
+                    let findedFindeds = await utils.waitForElementAll(`[role="listbox"] > li:first-child li:not([id="${personName}"])`);
                     for (let f of findedFindeds) {
                         /** @type { HTMLDivElement } */
                         let findedFinded = f.querySelector('[dir="auto"]');
-                        if (findedFinded && new RegExp(name, 'i').test(findedFinded.innerText)) {
+                        if (findedFinded && new RegExp(personName, 'i').test(findedFinded.innerText)) {
                             findedFinded.click();
                             realName = findedFinded.innerText;
                             break;
@@ -120,7 +123,7 @@ module.exports = class FacebookChat {
                 if (message && realName) {
                     await utils.waitForElement(`[aria-label="${realName}"]`);
                     // write message
-                    await utils.typingToElement('[role="textbox"] p', message);
+                    await utils.typingToElement(message, '[role="textbox"] p');
                     // @ts-ignore
                     console.log(document.querySelector('[role="textbox"] p').innerText, '==', message);
                     await new Promise(res => { setTimeout(res, 1000); });
@@ -131,7 +134,7 @@ module.exports = class FacebookChat {
                 }
 
                 return realName;
-            }, '$*', name, message);
+            }, '$*', personName, message);
 
             console.debug('Facebook Plugin sendMessage():', realName || false);
 
@@ -147,7 +150,6 @@ module.exports = class FacebookChat {
     #lastMessages = {users: {}};
 
     /**
-     * Returns not readed messages array by sender mame from Facebook Messenger
      * @param { Object } [options]
      * @param { boolean } [options.makrAsReaded = false]
      * @param { string } [options.fromPersonName]
@@ -203,7 +205,7 @@ module.exports = class FacebookChat {
                     if (makrAsReaded === true && (typeof fromPersonName != 'string'
                         || new RegExp(fromPersonName, 'i').test(name)
                     )) {
-                        await utils.typingToElement('[role="textbox"] p', ' ');
+                        await utils.typingToElement(' ', '[role="textbox"] p');
                         await new Promise(res => setTimeout(res, 1000)); // wait for chat tab loading
                     }
                 }

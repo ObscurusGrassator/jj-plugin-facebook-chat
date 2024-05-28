@@ -1,14 +1,16 @@
 module.exports = class {
     /**
-     * Send message by Facebook Messenger
-     * @param { string } name
+     * Send message by Facebook Messenger.
+     * @param { string } personName
      * @param { string } message
      * @returns { Promise<void> }
      */
-    async sendMessage(name, message) {}
+    async sendMessage(personName, message) {}
 
     /**
-     * Returns unread messages array by sender mame from Facebook Messenger
+     * Returns unread messages array by sender mame from Facebook Messenger.
+     * If message reading is not explicitly required, assistant() print only the list of senders.
+     * Only if you print the message content, assistant() mark them as readed.
      * @param { Object } [options]
      * @param { boolean } [options.makrAsReaded = false]
      * @param { string } [options.fromPersonName]

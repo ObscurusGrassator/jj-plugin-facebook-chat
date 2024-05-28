@@ -1,1 +1,20 @@
-var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");var _asyncToGenerator2=_interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));var _classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));module.exports=function(){function _class(){(0,_classCallCheck2.default)(this,_class);}return(0,_createClass2.default)(_class,[{key:"sendMessage",value:(function(){var _sendMessage=(0,_asyncToGenerator2.default)(function*(name,message){});function sendMessage(_x,_x2){return _sendMessage.apply(this,arguments);}return sendMessage;}())},{key:"getMessages",value:(function(){var _getMessages=(0,_asyncToGenerator2.default)(function*(){var _ref=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{},_ref$makrAsReaded=_ref.makrAsReaded,makrAsReaded=_ref$makrAsReaded===void 0?false:_ref$makrAsReaded,fromPersonName=_ref.fromPersonName;var closeBrowserTab=arguments.length>1&&arguments[1]!==undefined?arguments[1]:false;return{};});function getMessages(){return _getMessages.apply(this,arguments);}return getMessages;}())}]);}();
+module.exports = class {
+    /**
+     * Send message by Facebook Messenger.
+     * @param { string } personName
+     * @param { string } message
+     * @returns { Promise<void> }
+     */
+    async sendMessage(personName, message) {}
+
+    /**
+     * Returns unread messages array by sender mame from Facebook Messenger.
+     * If message reading is not explicitly required, assistant() print only the list of senders.
+     * Only if you print the message content, assistant() mark them as readed.
+     * @param { Object } [options]
+     * @param { boolean } [options.makrAsReaded = false]
+     * @param { string } [options.fromPersonName]
+     * @returns { Promise<{[personName: string]: {message: string}[]}> }
+     */
+    async getMessages({makrAsReaded = false, fromPersonName} = {}, closeBrowserTab = false) { return {}; }
+};
