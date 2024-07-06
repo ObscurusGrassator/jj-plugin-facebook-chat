@@ -53,10 +53,16 @@ module.exports = class FacebookChat {
         }, '$*');
     }
 
+    /** @returns { Promise<string> } Message */
+    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return (await this.options.speech(textInvitingUserToDictateMessage, true)).text; }
+
+    /** @returns { Promise<string> } Message */
+    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return (await this.options.speech(textInvitingUserToDictateRecipientName, true)).text; }
+
     /**
      * @param { string } personName
      * @param { string } message
-     * @returns { Promise<void> }
+     * @returns { Promise<Boolean> } Returns true if the user has agreed to send.
      */
     async sendMessage(personName, message) {
         await this.options.speech('Pripravujem Facebook správu ...');
@@ -67,11 +73,11 @@ module.exports = class FacebookChat {
 
         message = message.replace(/ __? /g, ' ');
 
-        if (await this.options.getSummaryAccept(`FacebookChat plugin: Môžem poslať správu priateľovi ${realName} s textom: ${message}`)) {
+        if (await this.options.getSummaryAccept(`Môžem poslať Facebook správu priateľovi ${realName} s textom: ${message}`)) {
             await this._sendMessage(personName, message);
-            await this.options.speech('Odoslané.');
+            return true;
         } else {
-            await this.options.speech('Príkaz bol zrušený.');
+            return false;
         }
     }
 

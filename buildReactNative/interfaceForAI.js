@@ -1,11 +1,17 @@
 module.exports = class {
+    /** @returns { Promise<string> } Message */
+    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return ''; }
+
+    /** @returns { Promise<string> } Message */
+    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return ''; }
+
     /**
      * Send message by Facebook Messenger.
-     * @param { string } personName
+     * @param { string } recipientName
      * @param { string } message
-     * @returns { Promise<void> }
+     * @returns { Promise<Boolean> } Returns true if the user has agreed to send.
      */
-    async sendMessage(personName, message) {}
+    async sendMessage(recipientName, message) { return true; }
 
     /**
      * Returns unread messages array by sender mame from Facebook Messenger.
