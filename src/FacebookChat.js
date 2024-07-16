@@ -12,9 +12,9 @@ module.exports = class FacebookChat {
 
     async login() {
         await this.options.browserTab.sendRequest(async utils => {
-            /** @type { HTMLButtonElement } */
-            let cookiebanner = document.querySelector('[data-cookiebanner="accept_only_essential_button"]');
-            if (cookiebanner !== null) cookiebanner.click();
+            /** @type { NodeListOf<HTMLButtonElement> } */
+            let cookiebanner = document.querySelectorAll('[aria-labelledby="manage_cookies_title"] [aria-label][role="button"][tabindex="0"]');
+            if (cookiebanner !== null && cookiebanner.length) cookiebanner[cookiebanner.length-1].click();
 
             /** @type { HTMLButtonElement } */
             let not_me_link = document.querySelector('[ID=not_me_link]');
