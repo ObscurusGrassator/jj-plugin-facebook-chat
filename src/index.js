@@ -15,6 +15,32 @@ module.exports = addPlugin({
     pluginFormatVersion: 1,
 }, {
     scriptInitializer: async ctx => new FacebookChat({...ctx, browserTab: await ctx.browserPluginStart('https://facebook.com/messages/t')}),
+    translations: /** @type { const } */ ({
+        receivingMessages: {
+            "sk-SK": "Prišli nové správy od priateľov",
+            "en-US": "There are new messages from friends"
+        },
+        receivingMessage: {
+            "sk-SK": "Prišla nová správa od priateľa",
+            "en-US": "There are new message from friend"
+        },
+        preparingMessage: {
+            "sk-SK": "Pripravujem Facebook správu ...",
+            "en-US": "Preparing a Facebook message ..."
+        },
+        realNameNotFound: {
+            "sk-SK": "Meno \"${name}\" sa v blízkych kontaktoch nenachádza.",
+            "en-US": "The name \"${name}\" is not found in close contacts."
+        },
+        canSendMessage: {
+            "sk-SK": "Môžem poslať Facebook správu priateľovi ${realName} s textom: ${message}",
+            "en-US": "Can I send a Facebook message to friend ${realName} with the text: ${message}"
+        },
+        iCheck: {
+            "sk-SK": "Pozriem Facebook...",
+            "en-US": "I will check Facebook..."
+        },
+    })
 }, {
     scriptDestructor: async ctx => {
         await ctx.methodsForAI.logout();
@@ -36,8 +62,8 @@ module.exports = addPlugin({
             if (friends && friends.length && lastMessages !== newMessagesString) {
                 lastMessages = newMessagesString;
 
-                if (friends.length  >  1) result = 'Prišli nové správy od priateľov ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
-                if (friends.length === 1) result = 'Prišli novú správu od priateľa ' + friends[0];
+                if (friends.length  >  1) result = ctx.translate.receivingMessages + ' ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
+                if (friends.length === 1) result = ctx.translate.receivingMessage + ' ' + friends[0];
             }
         }
         catch (err) { throw err; }

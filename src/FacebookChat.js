@@ -3,8 +3,8 @@
 module.exports = class FacebookChat {
     constructor(options) {
         /**
-         * @type { { browserTab: import('jjplugin').BrowserPuppeteer }
-         *      & import('jjplugin').Ctx<import('jjplugin').ConfigFrom<typeof import('./index')['config']>, FacebookChat>
+         * @type { import('jjplugin').Ctx< import('jjplugin').ConfigFrom<typeof import('./index')['config']>, FacebookChat, typeof import('./index')['translations'] >
+         *      & { browserTab: import('jjplugin').BrowserPuppeteer }
          * }
          */
         this.options = options;
@@ -65,15 +65,15 @@ module.exports = class FacebookChat {
      * @returns { Promise<Boolean> } Returns true if the user has agreed to send.
      */
     async sendMessage(personName, message) {
-        await this.options.speech('Pripravujem Facebook správu ...');
+        await this.options.speech(this.options.translate.preparingMessage);
     
         let realName = await this._sendMessage(personName, '');
 
-        if (!realName) throw `Meno "${realName}" sa v blízkych kontaktoch nenachádza.`;
+        if (!realName) throw this.options.translate.realNameNotFound({name: personName});
 
         message = message.replace(/ __? /g, ' ');
 
-        if (await this.options.getSummaryAccept(`Môžem poslať Facebook správu priateľovi ${realName} s textom: ${message}`)) {
+        if (await this.options.getSummaryAccept(this.options.translate.canSendMessage({realName, message}))) {
             await this._sendMessage(personName, message);
             return true;
         } else {
@@ -166,7 +166,7 @@ module.exports = class FacebookChat {
         let result;
 
         try {
-            await this.options.speech('Pozriem Facebook...');
+            await this.options.speech(this.options.translate.iCheck);
             await this.options.browserTab.pause.start();
             await this.options.browserTab.viewTab();
             await this.login();
