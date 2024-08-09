@@ -1,10 +1,13 @@
-To activate typing (JSDoc), which will help you configure the plugin correctly, I recommend using the VSCode IDE editor.  
+To activate typing (JSDoc), which will help you configure the plugin correctly, I recommend using the Visual Studio Code IDE editor.  
 
 `npm install --save-dev jjplugin`
 
 `npx jjPluginBuild`
 
-**GitLab / GitHub topic** required to make the plugin visible for JJAssisntant: `jjplugin`
+**GitLab / GitHub topic** required to make the plugin visible for JJAssisntant: `jjplugin`  
+**GitLab / GitHub topic** mark of the tested plugin in development available only in debug mode: `dev`  
+
+The latest plugins will be installed and the console log will be cleaned after restarting the application.  
 
 **src/index.js (example and description):**
 ```js
@@ -36,7 +39,7 @@ module.exports = addPlugin(
         }),
     },
     {
-        // required prerequisites necessary for the plugin to run
+        // specification of programs or operations necessary for the plugin to run
         moduleRequirementsPayed,
         moduleRequirementsFree: [{name: 'SMS app',
             linux: {
@@ -53,7 +56,6 @@ module.exports = addPlugin(
             await ctx.methodsForAI.logout();
             ctx.methodsForAI.options.browserTab.destructor();
         },
-        scriptPerInterval: async ctx => {},
     }
 );
 ```
@@ -114,6 +116,7 @@ module.exports = class FacebookChat {
 ctx.mobileAppOpen('jjplugin.obsgrass.sms', 'JJPluginSMSService', 'MainActivity', [["paramA", paramA], ["paramB", paramB]]);
 ```
 If the application requires some permissions to run, create an activity to request these permissions. Otherwise, the third parameter in ctx.mobileAppOpen() is optional.  
+If you want to read the logs of your plugin in JJAssistent in debug mode, set the sending of logs via intent.  
 You can send arbitrary user String extras arguments to the service via a two-dimensional array. In addition to these, the system arguments "intentFilterBroadcastString" and the unique "requestID" are also sent, thanks to which the intent response is correctly matched. The response must contain "requestID" and either "result" or "error":
 ```Java
 import android.app.Service;
@@ -122,22 +125,57 @@ import android.content.ComponentName;
 
 public class JJPluginSMSService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        // ... result/error inserting
-
         Bundle extras = intent.getExtras();
-        Intent intent = new Intent(extras.getString("intentFilterBroadcastString"));
 
+        // Sending plugin logs to JJAssistant
+        Boolean loging = true;
+        new Thread(() -> {
+            try {
+                Runtime.getRuntime().exec("logcat -c"); // remove history
+
+                Process process = Runtime.getRuntime().exec("logcat");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    if (!loging) break;
+
+                    Intent intent2 = new Intent(extras.getString("intentFilterBroadcastString"));
+
+                    JSONObject result = new JSONObject();
+                    result.put("level", "");
+                    result.put("tag", "");
+                    result.put("text", line);
+
+                    intent2.putExtra("requestID", "logCat");
+                    intent2.putExtra("result", result.toString());
+
+                    sendBroadcast(intent2);
+                }
+            }
+            catch (Exception e) {
+                Log.e("MainActivity-logcatRead", "Error: " + e.getMessage());
+            }
+        }).start();
+
+
+        // ... your result/error logic
+
+
+        // Sending result/error to JJAssistant and exit process
+        Intent intent = new Intent(extras.getString("intentFilterBroadcastString"));
         intent.putExtra("requestID", extras.getString("requestID"));
         if (error == null)
              intent.putExtra("result", result);
         else intent.putExtra("error", error);
 
         sendBroadcast(intent);
-        onDestroy();
+        loging = false;
         stopSelf();
+        onDestroy();
     }
 ```
+Complete example of Android service: [jjplugin-sms](https://github.com/ObscurusGrassator/jjplugin-sms/blob/main/android-apk-source/app/src/main/java/jjplugin/obsgrass/sms/JJPluginSMSService.java)  
 
 #### Other necessary modifications
 

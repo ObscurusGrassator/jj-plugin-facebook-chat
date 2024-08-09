@@ -1,9 +1,9 @@
 {
-  "version": "2.0.3",
+  "version": "2.3.1",
   "scripts": {
     "build": "npm i ; npx jjPluginBuild"
   },
   "devDependencies": {
-    "jjplugin": "^2.1.5"
+    "jjplugin": "^2.1.6"
   }
 }

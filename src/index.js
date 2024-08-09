@@ -16,14 +16,6 @@ module.exports = addPlugin({
 }, {
     scriptInitializer: async ctx => new FacebookChat({...ctx, browserTab: await ctx.browserPluginStart('https://facebook.com/messages/t')}),
     translations: /** @type { const } */ ({
-        receivingMessages: {
-            "sk-SK": "Prišli nové správy od priateľov",
-            "en-US": "There are new messages from friends"
-        },
-        receivingMessage: {
-            "sk-SK": "Prišla nová správa od priateľa",
-            "en-US": "There are new message from friend"
-        },
         preparingMessage: {
             "sk-SK": "Pripravujem Facebook správu ...",
             "en-US": "Preparing a Facebook message ..."
@@ -45,29 +37,5 @@ module.exports = addPlugin({
     scriptDestructor: async ctx => {
         await ctx.methodsForAI.logout();
         ctx.methodsForAI.options.browserTab.destructor();
-    },
-    scriptPerInterval: async ctx => {
-        if (!ctx.config.facebook.automatic.checkNewMessage.value) return;
-
-        let result = '';
-
-        try {
-            await ctx.methodsForAI.options.browserTab.pause.start();
-            await ctx.methodsForAI.login();
-
-            const newMessages = await ctx.methodsForAI.getMessages({makrAsReaded: false}, true);
-            const friends = Object.keys(newMessages);
-            const newMessagesString = JSON.stringify(newMessages);
-
-            if (friends && friends.length && lastMessages !== newMessagesString) {
-                lastMessages = newMessagesString;
-
-                if (friends.length  >  1) result = ctx.translate.receivingMessages + ' ' + friends.join(', ').replace(/, ([^,]+)$/, ' a $1');
-                if (friends.length === 1) result = ctx.translate.receivingMessage + ' ' + friends[0];
-            }
-        }
-        catch (err) { throw err; }
-        finally { ctx.methodsForAI.options.browserTab.pause.stop(); }
-        return result;
     }
 });

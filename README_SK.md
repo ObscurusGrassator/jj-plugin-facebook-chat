@@ -1,10 +1,13 @@
-Pre aktiváciu typovania (JSDoc), ktoré Vás pomôže správne nakonfigurovať plugin, odporúčam používať VSCode IDE editor.  
+Pre aktiváciu typovania (JSDoc), ktoré Vás pomôže správne nakonfigurovať plugin, odporúčam používať Visual Studio Code IDE editor.  
 
 `npm install --save-dev jjplugin`
 
 `npx jjPluginBuild`
 
-**GitLab / GitHub topic** potrebný pre zviditelnenie pluginu pre JJAssisntanta: `jjplugin`
+**GitLab / GitHub topic** potrebný pre zviditelnenie pluginu pre JJAssisntanta: `jjplugin`  
+**GitLab / GitHub topic** označenie testovacieho pluginu vyditeľného len v debug mode: `dev`  
+
+Po znova spustení aplikácie sa nainštalujú najnovšie pluginy, a premaže sa console log.  
 
 **src/index.js (príklad a popis):**
 ```js
@@ -35,7 +38,7 @@ module.exports = addPlugin(
         }),
     },
     {
-        // programy či operácie nevyhnutné pre chod pluginu
+        // špecifikácia programov či operácií nevyhnutných pre chod pluginu
         moduleRequirementsPayed,
         moduleRequirementsFree: [{name: 'SMS app',
             linux: {
@@ -47,12 +50,11 @@ module.exports = addPlugin(
                 downloadUrl: 'https://github.com/ObscurusGrassator/jjplugin-sms/releases/download/1.2.0/JJPluginSMS_v1.2.0.apk'
             }
         }],
-        // ďaĹšie nepovinné funkcie
+        // ďaľšie nepovinné funkcie
         scriptDestructor: async ctx => {
             await ctx.methodsForAI.logout();
             ctx.methodsForAI.options.browserTab.destructor();
         },
-        scriptPerInterval: async ctx => {},
     }
 );
 ```
@@ -113,6 +115,7 @@ module.exports = class FacebookChat {
 ctx.mobileAppOpen('jjplugin.obsgrass.sms', 'JJPluginSMSService', 'MainActivity', [["paramA", paramA], ["paramB", paramB]]);
 ```
 Ak aplikácia vyžaduje na svoj beh nejaké permissions, vytvorte aktivitu, kde si tieto oprávnenia vyžiadate. V opačnom prípade je tretí parameter v ctx.mobileAppOpen() nepovinný.  
+Ak chcete v debug móde čítať logy svojho pluginu v JJAssistentovi, nastavte zasielanie logov cez intent.  
 Do service môžete odoslať cez dvojrozmerné pole ľubovolné String extras argumenty. Okrem nich sa odosielajú aj systémové argumenty "intentFilterBroadcastString" a jedinečné "requestID", vďaka ktorému sa správne spáruje intent odpoveď, ktorá musí obsahovať "requestID" a buď "result" alebo "error":
 ```Java
 import android.app.Service;
@@ -121,22 +124,57 @@ import android.content.ComponentName;
 
 public class JJPluginSMSService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        // ... result/error inserting
-
         Bundle extras = intent.getExtras();
-        Intent intent = new Intent(extras.getString("intentFilterBroadcastString"));
 
+        // Odosielanie plugin logov do JJAssistant
+        Boolean loging = true;
+        new Thread(() -> {
+            try {
+                Runtime.getRuntime().exec("logcat -c"); // remove history
+
+                Process process = Runtime.getRuntime().exec("logcat");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    if (!loging) break;
+
+                    Intent intent2 = new Intent(extras.getString("intentFilterBroadcastString"));
+
+                    JSONObject result = new JSONObject();
+                    result.put("level", "");
+                    result.put("tag", "");
+                    result.put("text", line);
+
+                    intent2.putExtra("requestID", "logCat");
+                    intent2.putExtra("result", result.toString());
+
+                    sendBroadcast(intent2);
+                }
+            }
+            catch (Exception e) {
+                Log.e("MainActivity-logcatRead", "Error: " + e.getMessage());
+            }
+        }).start();
+
+
+        // ... vaša logika
+
+
+        // Odosielanie výsledku/chyby do JJAssistanta and ukončenie procesu
+        Intent intent = new Intent(extras.getString("intentFilterBroadcastString"));
         intent.putExtra("requestID", extras.getString("requestID"));
         if (error == null)
              intent.putExtra("result", result);
         else intent.putExtra("error", error);
 
         sendBroadcast(intent);
-        onDestroy();
+        loging = false;
         stopSelf();
+        onDestroy();
     }
 ```
+Kompletný príklad Android servisi: [jjplugin-sms](https://github.com/ObscurusGrassator/jjplugin-sms/blob/main/android-apk-source/app/src/main/java/jjplugin/obsgrass/sms/JJPluginSMSService.java)  
 
 #### Ostatné nevyhnutné úpravy
 
