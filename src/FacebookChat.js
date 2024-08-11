@@ -54,10 +54,10 @@ module.exports = class FacebookChat {
     }
 
     /** @returns { Promise<string> } Message */
-    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return (await this.options.speech(textInvitingUserToDictateMessage, true)).text; }
+    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return (await this.options.speech(this.options.translate.messageContentQuestion, true)).text; }
 
     /** @returns { Promise<string> } Message */
-    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return (await this.options.speech(textInvitingUserToDictateRecipientName, true)).text; }
+    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return (await this.options.speech(this.options.translate.recipientNameQuestion, true)).text; }
 
     /**
      * @param { string } personName
@@ -74,6 +74,7 @@ module.exports = class FacebookChat {
         message = message.replace(/ __? /g, ' ');
 
         if (await this.options.getSummaryAccept(this.options.translate.canSendMessage({realName, message}))) {
+            this.options.speech(this.options.translate.sendingMessage);
             await this._sendMessage(personName, message);
             return true;
         } else {

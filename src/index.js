@@ -32,6 +32,18 @@ module.exports = addPlugin({
             "sk-SK": "Pozriem Facebook...",
             "en-US": "I will check Facebook..."
         },
+        recipientNameQuestion: {
+            "sk-SK": "Komu mám správu odoslať?",
+            "en-US": "Who should I send the message to?"
+        },
+        messageContentQuestion: {
+            "sk-SK": "Môžete diktovať text správy:",
+            "en-US": "You can dictate the message text:"
+        },
+        sendingMessage: {
+            "sk-SK": "Odosielam Facebook správu...",
+            "en-US": "I am sending the Facebook message..."
+        },
     })
 }, {
     scriptDestructor: async ctx => {
