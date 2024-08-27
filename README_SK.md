@@ -123,8 +123,15 @@ import android.content.Intent;
 import android.content.ComponentName;    
 
 public class JJPluginSMSService extends Service {
+    private static String oldRequestID = "";
+
     public int onStartCommand(Intent intent, int flags, int startId) {
         Bundle extras = intent.getExtras();
+
+        // Niekedy sa servisa zavolá samovolne viackrát v rovnakom čase z rovnakými parametramy.
+        if (extras.getString("requestID").equals(oldRequestID)) {
+            return Service.START_REDELIVER_INTENT;
+        } else oldRequestID = extras.getString("requestID");
 
         // Odosielanie plugin logov do JJAssistant
         Boolean loging = true;
@@ -161,7 +168,7 @@ public class JJPluginSMSService extends Service {
         // ... vaša logika
 
 
-        // Odosielanie výsledku/chyby do JJAssistanta and ukončenie procesu
+        // Odosielanie výsledku/chyby do JJAssistanta a ukončenie procesu
         Intent intent = new Intent(extras.getString("intentFilterBroadcastString"));
         intent.putExtra("requestID", extras.getString("requestID"));
         if (error == null)
@@ -175,6 +182,8 @@ public class JJPluginSMSService extends Service {
     }
 ```
 Kompletný príklad Android servisi: [jjplugin-sms](https://github.com/ObscurusGrassator/jjplugin-sms/blob/main/android-apk-source/app/src/main/java/jjplugin/obsgrass/sms/JJPluginSMSService.java)  
+
+**POZOR:** Niekedy sa servisa zavolá samovolne viackrát v rovnakom čase z rovnakými parametramy. 
 
 #### Ostatné nevyhnutné úpravy
 
