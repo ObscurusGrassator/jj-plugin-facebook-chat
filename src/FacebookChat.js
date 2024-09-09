@@ -54,10 +54,10 @@ module.exports = class FacebookChat {
     }
 
     /** @returns { Promise<string> } Message */
-    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return (await this.options.speech(this.options.translate.messageContentQuestion, true)).text; }
+    async promptToSentMessageContent() { return (await this.options.speech(this.options.translate.messageContentQuestion, true)).text; }
 
     /** @returns { Promise<string> } Message */
-    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return (await this.options.speech(this.options.translate.recipientNameQuestion, true)).text; }
+    async promptToRecipientName() { return (await this.options.speech(this.options.translate.recipientNameQuestion, true)).text; }
 
     /**
      * @param { string } personName

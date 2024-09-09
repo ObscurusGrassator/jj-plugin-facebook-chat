@@ -1,9 +1,9 @@
 module.exports = class {
     /** @returns { Promise<string> } Message */
-    async promptToSentMessageContent(textInvitingUserToDictateMessage) { return ''; }
+    async promptToSentMessageContent() { return ''; }
 
     /** @returns { Promise<string> } Message */
-    async promptToRecipientName(textInvitingUserToDictateRecipientName) { return ''; }
+    async promptToRecipientName() { return ''; }
 
     /**
      * Send message by Facebook Messenger.
