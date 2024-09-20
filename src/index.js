@@ -20,16 +20,12 @@ module.exports = addPlugin({
             "sk-SK": "Pripravujem Facebook správu ...",
             "en-US": "Preparing a Facebook message ..."
         },
-        realNameNotFound: {
-            "sk-SK": "Meno \"${name}\" sa v blízkych kontaktoch nenachádza.",
-            "en-US": "The name \"${name}\" is not found in close contacts."
-        },
         canSendMessage: {
             "sk-SK": "Môžem poslať Facebook správu priateľovi ${realName} s textom: ${message}",
             "en-US": "Can I send a Facebook message to friend ${realName} with the text: ${message}"
         },
         iCheck: {
-            "sk-SK": "Pozriem Facebook...",
+            "sk-SK": "Pozriem Facebook ...",
             "en-US": "I will check Facebook..."
         },
         recipientNameQuestion: {

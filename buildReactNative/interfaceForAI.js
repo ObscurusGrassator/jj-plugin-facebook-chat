@@ -7,9 +7,12 @@ module.exports = class {
 
     /**
      * Send message by Facebook Messenger.
+     * Returns true if the user has agreed to send, and false if the user has canceled the submission.
+     * If the person name does not exist, the function returns false.
+     * When you notify the user that this input name was not found in the contacts, do not forget to read the input name itself.
      * @param { string } recipientName
      * @param { string } message
-     * @returns { Promise<Boolean> } Returns true if the user has agreed to send.
+     * @returns { Promise<Boolean | null> }
      */
     async sendMessage(recipientName, message) { return true; }
 

@@ -62,14 +62,14 @@ module.exports = class FacebookChat {
     /**
      * @param { string } personName
      * @param { string } message
-     * @returns { Promise<Boolean> } Returns true if the user has agreed to send.
+     * @returns { Promise<Boolean | null> }
      */
     async sendMessage(personName, message) {
         await this.options.speech(this.options.translate.preparingMessage);
     
         let realName = await this._sendMessage(personName, '');
 
-        if (!realName) throw this.options.translate.realNameNotFound({name: personName});
+        if (!realName) return null;
 
         message = message.replace(/ __? /g, ' ');
 
@@ -143,14 +143,14 @@ module.exports = class FacebookChat {
                 return realName;
             }, '$*', personName, message);
 
-            console.debug('Facebook Plugin sendMessage():', realName || false);
+            console.debug('Facebook Plugin sendMessage():', realName);
 
             await this.setDefaultScreen();
         }
         catch (err) { throw err; }
         finally { this.options.browserTab.pause.stop(); }
 
-        return realName || false;
+        return realName;
     }
 
     /** @type {{ users: {[user: string]: {lastMessage: string}} }} */ 
