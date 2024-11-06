@@ -26,7 +26,7 @@ module.exports = addPlugin({
         },
         iCheck: {
             "sk-SK": "Pozriem Facebook ...",
-            "en-US": "I will check Facebook..."
+            "en-US": "I will check Facebook ..."
         },
         recipientNameQuestion: {
             "sk-SK": "Komu mám správu odoslať?",
@@ -37,8 +37,8 @@ module.exports = addPlugin({
             "en-US": "You can dictate the message text:"
         },
         sendingMessage: {
-            "sk-SK": "Odosielam Facebook správu...",
-            "en-US": "I am sending the Facebook message..."
+            "sk-SK": "Odosielam Facebook správu ...",
+            "en-US": "I am sending the Facebook message ..."
         },
     })
 }, {
