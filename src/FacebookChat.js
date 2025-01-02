@@ -1,6 +1,9 @@
 /** @typedef { import('./interfaceForAI.js') } InterfaceForAI */
-/** @implements { InterfaceForAI } */
+/** @implements {InterfaceForAI} */
 module.exports = class FacebookChat {
+    /** @type { string } */
+    lastChatPersonName;
+
     constructor(options) {
         /**
          * @type { import('jjplugin').Ctx< import('jjplugin').ConfigFrom<typeof import('./index')['config']>, FacebookChat, typeof import('./index')['translations'] >
@@ -60,14 +63,14 @@ module.exports = class FacebookChat {
     async promptToRecipientName() { return (await this.options.speech(this.options.translate.recipientNameQuestion, true)).text; }
 
     /**
-     * @param { string } personName
+     * @param { string } recipientName
      * @param { string } message
      * @returns { Promise<Boolean | null> }
      */
-    async sendMessage(personName, message) {
+    async sendMessage(recipientName, message) {
         await this.options.speech(this.options.translate.preparingMessage);
     
-        let realName = await this._sendMessage(personName, '');
+        let realName = await this._sendMessage(recipientName, '');
 
         if (!realName) return null;
 
@@ -75,7 +78,11 @@ module.exports = class FacebookChat {
 
         if (await this.options.getSummaryAccept(this.options.translate.canSendMessage({realName, message}))) {
             this.options.speech(this.options.translate.sendingMessage);
-            await this._sendMessage(personName, message);
+
+            this.lastChatPersonName = realName;
+
+            await this._sendMessage(recipientName, message);
+
             return true;
         } else {
             return false;
@@ -100,7 +107,7 @@ module.exports = class FacebookChat {
 
                 // searching in last writing firends
                 for (let f of friendTabs) {
-                    if (f.querySelectorAll('div[role="img"] > div').length > 1) continue; // group - not one person
+                    if (f.querySelectorAll('img').length > 1) continue; // group - not one person
 
                     /** @type { HTMLDivElement } */
                     let friendTab = f.querySelector('[dir="auto"]');
@@ -160,9 +167,9 @@ module.exports = class FacebookChat {
      * @param { Object } [options]
      * @param { boolean } [options.makrAsReaded = false]
      * @param { string } [options.fromPersonName]
-     * @returns { Promise<{[name: string]: {message: string}[]}> }
+     * @returns { Promise<{[personName: string]: {message: string}[]}> }
      */
-    async getMessages({makrAsReaded = false, fromPersonName} = {}, closeBrowserTab = false) {
+    async getMessages({makrAsReaded = false, fromPersonName = undefined} = {}, closeBrowserTab = false) {
         /** @type {{ [name: string]: {message: string}[] }} */
         let result;
 
@@ -177,18 +184,29 @@ module.exports = class FacebookChat {
                 let messages = {};
                 let codeByName = {};
 
-                let friendTabs = await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="button"] > [data-visualcompletion="ignore"]');
-
+                // let friendTabs = await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="button"] > [data-visualcompletion="ignore"]');
+                // for (let e of friendTabs) {
+                //     let link = e.closest('[role="gridcell"]').parentElement.querySelector('div:first-child > div > a');
+                //     if (window.getComputedStyle(e).backgroundColor.substring(0, 4) == 'rgb(' // only new messages
+                //             && link.querySelectorAll('div[role="img"] > div').length === 1) { // without groups
+                //         // @ts-ignore
+                //         let name = e.closest('[role="row"]').querySelector('[dir="auto"]').innerText.replace(/\\n/, '');
+                //         messages[name] = [];
+                //         codeByName[name] = link.getAttribute('href').match(/\/[0-9]+\//)[0];
+                //     }
+                // }
+                await utils.waitForElementAll('[data-pagelet="MWThreadList"] [role="button"]');
+                let friendTabs = document.querySelectorAll('[data-pagelet="MWThreadList"] [role="button"] > span[data-visualcompletion="ignore"]');
                 for (let e of friendTabs) {
                     let link = e.closest('[role="gridcell"]').parentElement.querySelector('div:first-child > div > a');
-                    if (window.getComputedStyle(e).backgroundColor.substring(0, 4) == 'rgb(' // only new messages
-                            && link.querySelectorAll('div[role="img"] > div').length === 1) { // without groups
+                    if (link.querySelectorAll('img').length === 1) { // without groups
                         // @ts-ignore
                         let name = e.closest('[role="row"]').querySelector('[dir="auto"]').innerText.replace(/\\n/, '');
                         messages[name] = [];
                         codeByName[name] = link.getAttribute('href').match(/\/[0-9]+\//)[0];
                     }
                 }
+
                 for (let name in messages) {
                     let link = /** @type { HTMLLinkElement } */ await utils.waitForElement(
                         `[data-pagelet="MWThreadList"] a[aria-current="false"][href*="${codeByName[name]}"]`);
@@ -201,7 +219,7 @@ module.exports = class FacebookChat {
                     let lastColor;
                     // all last messages
                     for (let i = elems.length - 1, run = -2; i >= 0 && run; i--) {
-                        let e = elems[i].querySelector('[style^=background-color]');
+                        let e = elems[i].querySelector('[role="presentation"] > span:not(:has([role="presentation"]))');
                         if (e && !lastColor) lastColor = window.getComputedStyle(e).color;
                         if (e && lastColor == window.getComputedStyle(e).color) {
                             // @ts-ignore
@@ -244,6 +262,8 @@ module.exports = class FacebookChat {
                     }
                 } else if (typeof fromPersonName == 'string') delete result[name];
             }
+
+            if (Object.keys(result).length === 1) this.lastChatPersonName = Object.keys(result)[0];
         }
         catch (err) { throw err; }
         finally { this.options.browserTab.pause.stop(); }
@@ -257,7 +277,8 @@ module.exports = class FacebookChat {
     async setDefaultScreen(closeBrowserTab = false) {
         await this.options.browserTab.sendRequest(async utils => {
             (/** @type { HTMLDivElement } */(
-                await utils.waitForElement('a[href="/messages/new/"]')
+                // (await utils.waitForElementAll('[role="navigation"]'))[2].querySelectorAll('[aria-label][role="button"]')[1]
+                (await utils.waitForElementAll('[role="navigation"]:has([data-pagelet="MWThreadList"]) [aria-label][role="button"]'))[1]
             )).click();
         }, '$*');
         closeBrowserTab && await this.options.browserTab.destructor();

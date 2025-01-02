@@ -1,7 +1,5 @@
 const FacebookChat = require('./FacebookChat');
 
-let lastMessages = '';
-
 module.exports = addPlugin({
     facebook: {
         login: {type: 'string'},
@@ -14,7 +12,7 @@ module.exports = addPlugin({
     os: { linux: true, darwin: true, win32: true, android: true, ios: true },
     pluginFormatVersion: 1,
 }, {
-    scriptInitializer: async ctx => new FacebookChat({...ctx, browserTab: await ctx.browserPluginStart('https://facebook.com/messages/t')}),
+    scriptInitializer: async ctx => new FacebookChat({...ctx, browserTab: await ctx.browserTabStart('https://facebook.com/messages/t')}),
     translations: /** @type { const } */ ({
         preparingMessage: {
             "sk-SK": "Pripravujem Facebook správu ...",

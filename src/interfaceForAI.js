@@ -1,4 +1,7 @@
-module.exports = class {
+module.exports = class InterfaceForAI {
+    /** @type { string } */
+    lastChatPersonName;
+
     /** @returns { Promise<string> } Message */
     async promptToSentMessageContent() { return ''; }
 
